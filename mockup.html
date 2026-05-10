@@ -1,0 +1,4176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高見ビーフ｜兵庫県丹波篠山　ブランド和牛 高見牛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-bg: #f6f3ec;
+    --color-bg-alt: #ffffff;
+    --color-text: #1f2a2a;
+    --color-muted: #6b7270;
+    --color-accent: #2f4a3a;        /* forest green */
+    --color-accent-deep: #1f3329;
+    --color-gold: #8a7a4f;          /* muted olive-gold */
+    --color-line: #e2dccf;
+    --serif: "Noto Serif JP", "游明朝", "Yu Mincho", serif;
+    --sans: "Noto Sans JP", "ヒラギノ角ゴ Pro", sans-serif;
+    --latin-serif: "Cormorant Garamond", serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--color-text);
+    background: var(--color-bg);
+    line-height: 1.8;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; transition: opacity .3s; }
+  a:hover { opacity: .7; }
+
+  /* ====== Header ====== */
+  .header {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(250, 248, 245, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-line);
+    z-index: 100;
+    padding: 16px 40px;
+  }
+  .header-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    display: inline-block;
+    line-height: 0;
+  }
+  .logo img {
+    height: 64px; width: auto;
+    display: block;
+    transition: opacity .3s;
+  }
+  .logo:hover img { opacity: 0.85; }
+  .nav { display: flex; gap: 32px; align-items: center; }
+  .nav a { font-size: 13px; letter-spacing: 0.1em; }
+  .shop-btn {
+    background: var(--color-text); color: #fff !important;
+    padding: 12px 28px; font-size: 12px; letter-spacing: 0.2em;
+    border: 1px solid var(--color-text);
+    transition: all .3s;
+  }
+  .shop-btn:hover { background: transparent; color: var(--color-text) !important; opacity: 1; }
+
+  /* ====== Hero (Luxury Edition: 黒×金×深紅) ====== */
+  .hero {
+    --gold: #c9a55a;
+    --gold-bright: #e0c378;
+    --red: #8b1320;
+    --black: #0a0606;
+    height: 100vh; min-height: 720px;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; text-align: center;
+    background: var(--black);
+  }
+  /* Layered background: meat photo + cattle photo crossfade */
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(10,6,6,0.55) 0%, rgba(10,6,6,0.35) 40%, rgba(10,6,6,0.85) 100%),
+      url("https://baseec-img-mng.akamaized.net/images/item/origin/03c3cabf8bff36a226a1ce4cdfd5b064.jpg?imformat=generic&q=95&im=Resize,width=1920,type=normal") center/cover no-repeat;
+    z-index: 1;
+    animation: heroZoomSlow 18s ease-out infinite alternate;
+  }
+  @keyframes heroZoomSlow {
+    from { transform: scale(1.0); }
+    to   { transform: scale(1.08); }
+  }
+  /* Cinematic vignette + warm glow */
+  .hero::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(0,0,0,0.55) 100%),
+      radial-gradient(ellipse at 30% 70%, rgba(139,19,32,0.18), transparent 60%),
+      radial-gradient(ellipse at 70% 30%, rgba(201,165,90,0.12), transparent 60%);
+    z-index: 2;
+  }
+
+  /* Decorative gold frame */
+  .hero-frame {
+    position: absolute; inset: 36px;
+    border: 1px solid rgba(201,165,90,0.35);
+    pointer-events: none;
+    z-index: 3;
+  }
+  .hero-frame-corner {
+    position: absolute; width: 28px; height: 28px;
+    border: 2px solid var(--gold);
+  }
+  .hero-frame-corner.tl { top:-1px; left:-1px; border-right:0; border-bottom:0; }
+  .hero-frame-corner.tr { top:-1px; right:-1px; border-left:0; border-bottom:0; }
+  .hero-frame-corner.bl { bottom:-1px; left:-1px; border-right:0; border-top:0; }
+  .hero-frame-corner.br { bottom:-1px; right:-1px; border-left:0; border-top:0; }
+
+  .hero-content {
+    position: relative; z-index: 4; padding: 0 24px;
+    text-align: center;
+    max-width: 960px;
+    animation: heroFadeIn 1.6s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Award Badge */
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 14px;
+    margin-bottom: 36px;
+    padding: 11px 28px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.35));
+    border: 1px solid var(--gold);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5), inset 0 0 22px rgba(201,165,90,0.10);
+    position: relative;
+  }
+  .hero-badge::before, .hero-badge::after {
+    content: "❖";
+    color: var(--gold);
+    font-size: 11px;
+  }
+  .hero-badge-text {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.4em;
+    color: var(--gold-bright);
+    text-shadow: 0 2px 12px rgba(201,165,90,0.5);
+  }
+  .hero-badge-year {
+    display: block;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    margin-top: 3px;
+    font-weight: 400;
+  }
+
+  /* Main Catch */
+  .hero h1 {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 600;
+    font-size: clamp(48px, 8vw, 110px);
+    line-height: 1.18;
+    letter-spacing: 0.10em;
+    margin: 0 0 18px;
+    color: #fff;
+    text-shadow: 0 6px 30px rgba(0,0,0,0.7);
+  }
+  .hero h1 .num {
+    color: var(--gold-bright);
+    font-style: italic;
+    font-family: "Cormorant Garamond", "Noto Serif JP", serif;
+    font-weight: 500;
+  }
+  .hero h1 .accent { color: var(--gold-bright); }
+
+  /* Divider */
+  .hero-divider {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin: 22px auto 26px;
+    color: var(--gold);
+  }
+  .hero-divider .line {
+    flex: 0 0 80px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .hero-divider .ornament {
+    font-size: 14px; color: var(--gold-bright);
+  }
+
+  /* Brand */
+  .hero-brand {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 600;
+    font-size: clamp(22px, 2.6vw, 32px);
+    letter-spacing: 0.5em;
+    padding-left: 0.5em;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .hero-brand-en {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: clamp(13px, 1.3vw, 16px);
+    letter-spacing: 0.45em;
+    color: var(--gold-bright);
+    margin-bottom: 30px;
+  }
+  .hero-tagline {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 500;
+    font-size: clamp(20px, 2.6vw, 32px);
+    letter-spacing: 0.25em;
+    line-height: 1.6;
+    margin: 0 0 24px;
+    color: #fff;
+    padding-left: 0.25em;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.55);
+  }
+  .hero-tagline .dot {
+    color: var(--gold-bright);
+    font-style: italic;
+    margin-left: 2px;
+  }
+
+  /* Sub copy */
+  .hero-sub {
+    font-size: 15px;
+    letter-spacing: 0.18em;
+    line-height: 2.1;
+    color: rgba(255,255,255,0.85);
+    max-width: 600px;
+    margin: 0 auto 50px;
+  }
+
+  /* CTA Buttons */
+  .hero-ctas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 14px;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .hero-cta {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 4px;
+    min-height: 78px;
+    padding: 16px 12px;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(201,165,90,0.45);
+    color: #fff !important;
+    font-family: "Noto Serif JP", serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-decoration: none;
+    transition: all .35s cubic-bezier(.2,.7,.2,1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .hero-cta .cta-en {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 10.5px;
+    letter-spacing: 0.32em;
+    color: var(--gold-bright);
+    text-transform: uppercase;
+  }
+  .hero-cta:hover {
+    background: var(--gold);
+    color: var(--black) !important;
+    border-color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(201,165,90,0.25);
+    opacity: 1;
+  }
+  .hero-cta:hover .cta-en { color: var(--black); }
+  .hero-cta.primary {
+    background: linear-gradient(180deg, var(--red), #6b0d18);
+    border-color: var(--red);
+    box-shadow: 0 10px 30px rgba(139,19,32,0.45),
+                inset 0 0 20px rgba(201,165,90,0.15);
+  }
+  .hero-cta.primary:hover {
+    background: linear-gradient(180deg, #a31729, var(--red));
+    border-color: var(--gold);
+    color: #fff !important;
+  }
+  .hero-cta.primary .cta-en { color: var(--gold-bright); }
+
+  /* Trust strip below CTAs */
+  .hero-trust {
+    margin-top: 50px;
+    display: flex; gap: 22px; justify-content: center; align-items: center;
+    flex-wrap: wrap;
+    font-size: 11.5px;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.55);
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+  }
+  .hero-trust span { display: inline-flex; align-items: center; gap: 6px; }
+  .hero-trust span::before {
+    content: "—"; color: var(--gold);
+  }
+
+  /* Scroll indicator */
+  .hero-scroll {
+    position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
+    z-index: 4; color: rgba(255,255,255,0.7);
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 10.5px; letter-spacing: 0.4em;
+  }
+  .hero-scroll::after {
+    content: ""; display: block; width: 1px; height: 32px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    margin: 10px auto 0;
+    animation: scroll-line 2.4s ease-in-out infinite;
+  }
+  @keyframes scroll-line {
+    0%, 100% { transform: scaleY(0.4); opacity: 0.4; transform-origin: top; }
+    50% { transform: scaleY(1); opacity: 1; transform-origin: top; }
+  }
+
+  /* Sticky mobile bottom bar (60代対応) */
+  .stickybar {
+    position: fixed; left: 0; right: 0; bottom: 0;
+    z-index: 90;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: rgba(10,6,6,0.96);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(201,165,90,0.4);
+    box-shadow: 0 -8px 24px rgba(0,0,0,0.4);
+  }
+  .stickybar a {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 4px;
+    padding: 12px 6px 14px;
+    color: #fff !important;
+    text-decoration: none;
+    font-family: "Noto Serif JP", serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    border-right: 1px solid rgba(201,165,90,0.18);
+    min-height: 64px;
+  }
+  .stickybar a:last-child { border-right: 0; }
+  .stickybar a .ico { font-size: 20px; line-height: 1; }
+  .stickybar a.tel { background: linear-gradient(180deg, var(--color-accent), var(--color-accent-deep)); }
+  .stickybar a.shop { background: linear-gradient(180deg, #8b1320, #6b0d18); }
+  .stickybar a.book {}
+
+  /* Hero responsive (Mobile first) */
+  @media (max-width: 768px) {
+    .hero { min-height: 620px; }
+    .hero-frame { inset: 16px; }
+    .hero-badge { padding: 8px 18px; gap: 10px; }
+    .hero-badge-text { font-size: 11px; letter-spacing: 0.3em; }
+    .hero h1 { font-size: clamp(40px, 12vw, 64px); letter-spacing: 0.06em; }
+    .hero-brand { font-size: 19px; letter-spacing: 0.4em; }
+    .hero-sub { font-size: 13.5px; letter-spacing: 0.12em; line-height: 1.95; max-width: 420px; }
+    .hero-ctas { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .hero-cta { min-height: 64px; font-size: 13px; }
+    .hero-trust { gap: 14px; font-size: 10.5px; padding-bottom: 70px; }
+    .hero-scroll { display: none; }
+    .stickybar { display: grid; }
+    body { padding-bottom: 64px; } /* avoid being covered */
+  }
+
+  /* ====== Section common ====== */
+  section { padding: 120px 40px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-head { text-align: center; margin-bottom: 80px; }
+  .section-label {
+    font-family: var(--latin-serif);
+    font-size: 13px; letter-spacing: 0.4em;
+    color: var(--color-gold); margin-bottom: 16px;
+    display: block;
+  }
+  .section-title {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(26px, 3.5vw, 38px);
+    letter-spacing: 0.15em;
+  }
+  .section-title::after {
+    content: ""; display: block; width: 40px; height: 1px;
+    background: var(--color-gold); margin: 24px auto 0;
+  }
+
+  /* ====== Brand Concept (Cinematic) ====== */
+  .concept {
+    background: #0a0606;
+    color: #fff;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .concept-inner {
+    position: relative;
+    min-height: 720px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 980px) {
+    .concept-inner { grid-template-columns: 1fr; min-height: auto; }
+  }
+  .concept-image {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://baseec-img-mng.akamaized.net/images/item/origin/03c3cabf8bff36a226a1ce4cdfd5b064.jpg?imformat=generic&q=95&im=Resize,width=1600,type=normal");
+    min-height: 460px;
+  }
+  .concept-image::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(10,6,6,0.6) 100%),
+      linear-gradient(90deg, transparent 60%, rgba(10,6,6,0.95) 100%);
+  }
+  @media (max-width: 980px) {
+    .concept-image { min-height: 380px; }
+    .concept-image::after { background: linear-gradient(180deg, transparent 50%, rgba(10,6,6,0.95) 100%); }
+  }
+  .concept-text {
+    padding: 100px 70px 90px;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; z-index: 2;
+  }
+  @media (max-width: 980px) {
+    .concept-text { padding: 60px 28px 70px; }
+  }
+  .concept-text::before {
+    content: ""; position: absolute;
+    top: 70px; left: 0; width: 36px; height: 1px;
+    background: var(--color-gold);
+  }
+  .concept-label {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.5em;
+    color: var(--color-gold);
+    margin-bottom: 28px;
+    text-transform: uppercase;
+  }
+  .concept-headline {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 600;
+    font-size: clamp(34px, 4.2vw, 54px);
+    letter-spacing: 0.18em;
+    line-height: 1.6;
+    color: #fff;
+    margin-bottom: 36px;
+    text-shadow: 0 4px 22px rgba(0,0,0,0.6);
+  }
+  .concept-headline .gold { color: #e0c378; font-style: italic; font-family: "Cormorant Garamond", "Noto Serif JP", serif; font-weight: 500; }
+  .concept-headline .ornament {
+    display: inline-block;
+    color: #c9a55a;
+    font-size: 0.5em;
+    margin: 0 8px;
+    transform: translateY(-0.3em);
+  }
+  .concept-body p {
+    font-size: 15.5px;
+    line-height: 2.2;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.86);
+    margin-bottom: 18px;
+    font-family: "Noto Serif JP", serif;
+    font-weight: 400;
+  }
+  .concept-body p:last-of-type { margin-bottom: 28px; }
+  .concept-body strong {
+    color: #e0c378;
+    font-weight: 500;
+  }
+  .concept-pillars {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 26px;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(201,165,90,0.25);
+  }
+  .concept-pillar {
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .concept-pillar-num {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #c9a55a;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .concept-pillar-text strong {
+    display: block;
+    font-family: "Noto Serif JP", serif;
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    color: #fff;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .concept-pillar-text small {
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.6);
+  }
+  @media (max-width: 600px) {
+    .concept-pillars { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  /* ====== About Us (Shikishima style) ====== */
+  .aboutus {
+    background: #0c1310;
+    color: #fff;
+    padding: 140px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .aboutus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1300px; margin: 0 auto;
+  }
+  .aboutus-title {
+    font-family: var(--latin-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(54px, 7vw, 96px);
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 60px;
+  }
+  .aboutus-text p {
+    font-size: 14.5px; line-height: 2.2;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 22px;
+  }
+  .aboutus-more {
+    display: inline-flex; align-items: center;
+    margin-top: 60px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    font-family: var(--latin-serif);
+    font-size: 17px; letter-spacing: 0.15em;
+    color: #fff;
+    min-width: 280px;
+    justify-content: space-between;
+  }
+  .aboutus-more::after {
+    content: "→"; font-size: 18px; margin-left: 30px;
+    transition: transform .3s;
+  }
+  .aboutus-more:hover { opacity: 1; }
+  .aboutus-more:hover::after { transform: translateX(8px); }
+
+  .aboutus-map {
+    position: relative;
+    aspect-ratio: 5/6;
+    color: rgba(255,255,255,0.35);
+  }
+  .aboutus-map svg {
+    width: 100%; height: 100%;
+    display: block;
+  }
+  .aboutus-photo {
+    position: absolute;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.15);
+    overflow: hidden;
+    background: #1a2520;
+  }
+  .aboutus-photo img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: contrast(1.05) saturate(1.05);
+  }
+  .aboutus-photo-1 {
+    width: 38%; aspect-ratio: 4/3;
+    top: 24%; left: 18%;
+  }
+  .aboutus-photo-2 {
+    width: 32%; aspect-ratio: 4/3;
+    bottom: 14%; right: 10%;
+  }
+  .aboutus-script {
+    position: absolute;
+    font-family: "Great Vibes", cursive;
+    font-size: 36px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .aboutus-script-1 {
+    top: 18%; left: 14%;
+  }
+  .aboutus-script-2 {
+    bottom: 35%; right: 12%;
+  }
+  .aboutus-pin {
+    position: absolute;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow:
+      0 0 0 4px rgba(47,74,58,0.4),
+      0 0 0 10px rgba(47,74,58,0.2);
+    animation: pinPulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pinPulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(47,74,58,0.45), 0 0 0 10px rgba(47,74,58,0.20); }
+    50%      { box-shadow: 0 0 0 8px rgba(47,74,58,0.30), 0 0 0 18px rgba(47,74,58,0.05); }
+  }
+  /* Tamba farm pin - around northern Hyogo (Tamba) in viewBox */
+  .aboutus-pin-tamba { top: 50%; left: 35%; }
+  /* Kyoto cluster pin - around southern Kyoto in viewBox */
+  .aboutus-pin-kyoto { top: 54.5%; left: 41%; }
+  .aboutus-loc {
+    position: absolute;
+    font-family: var(--sans);
+    font-size: 12px; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+  .aboutus-loc small {
+    display: block;
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+    font-weight: 400;
+  }
+  .aboutus-loc::before {
+    content: ""; display: inline-block;
+    width: 28px; height: 1px;
+    background: rgba(255,255,255,0.5);
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  .aboutus-loc-tamba { top: 47%; left: 42%; }
+  .aboutus-loc-kyoto { top: 53.5%; left: 48%; }
+
+  /* ====== Full-bleed photo slider ====== */
+  .slider {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 21/9;
+    overflow: hidden;
+    background: #0c1310;
+  }
+  .slider-track { position: absolute; inset: 0; }
+  .slide {
+    position: absolute; inset: 0;
+    opacity: 0;
+    transition: opacity 1.6s ease-in-out;
+    transform: scale(1);
+  }
+  .slide img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block;
+  }
+  .slide.is-active {
+    opacity: 1;
+    animation: slideZoom 8s ease-out forwards;
+  }
+  @keyframes slideZoom {
+    from { transform: scale(1); }
+    to   { transform: scale(1.08); }
+  }
+  .slider::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg,
+      rgba(10,15,12,0.15) 0%,
+      transparent 35%,
+      transparent 65%,
+      rgba(10,15,12,0.55) 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .slide-caption {
+    position: absolute; left: 6%; bottom: 8%;
+    z-index: 3;
+    color: #fff;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-out 0.4s;
+  }
+  .slide.is-active .slide-caption {
+    opacity: 1; transform: translateY(0);
+  }
+  .slide-caption .num {
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 13px; letter-spacing: 0.4em;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 8px;
+  }
+  .slide-caption .title {
+    font-family: var(--serif); font-weight: 500;
+    font-size: clamp(20px, 2.4vw, 32px);
+    letter-spacing: 0.18em;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  }
+  .slider-dots {
+    position: absolute; bottom: 30px; right: 6%;
+    z-index: 4;
+    display: flex; gap: 14px;
+  }
+  .slider-dot {
+    width: 28px; height: 1px;
+    background: rgba(255,255,255,0.4);
+    border: none;
+    cursor: pointer; padding: 12px 0;
+    background-clip: content-box;
+    transition: background-color .3s;
+  }
+  .slider-dot.is-active { background: var(--color-gold); }
+
+  /* ====== Brand message (small intro, kept for compatibility) ====== */
+  .brand {
+    background: #fff;
+    text-align: center;
+    padding: 140px 40px;
+  }
+  .brand-jp {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(22px, 2.8vw, 32px);
+    line-height: 2.2; letter-spacing: 0.2em;
+    margin-bottom: 40px;
+  }
+  .brand-text {
+    max-width: 680px; margin: 0 auto;
+    font-size: 15px; line-height: 2.2;
+    color: var(--color-muted);
+  }
+
+  /* ====== Brand Story ====== */
+  .story {
+    background: var(--color-bg);
+    padding: 140px 40px;
+  }
+  .story-container {
+    display: grid; grid-template-columns: 1.05fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .story-image {
+    position: relative; aspect-ratio: 4/5;
+    overflow: hidden;
+  }
+  .story-image::before {
+    content: ""; position: absolute;
+    top: 30px; left: 30px;
+    width: 100%; height: 100%;
+    border: 1px solid var(--color-gold);
+    z-index: 0;
+  }
+  .story-image img {
+    position: relative; z-index: 1;
+    width: 100%; height: 100%; object-fit: cover;
+    filter: contrast(1.06) saturate(1.08);
+  }
+  .story-text { padding-left: 20px; }
+  .story-title {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(26px, 3vw, 36px);
+    line-height: 1.7; letter-spacing: 0.12em;
+    margin: 18px 0 40px;
+  }
+  .story-text p {
+    font-size: 14.5px; line-height: 2.1;
+    color: #333; margin-bottom: 22px;
+  }
+  .story-sign {
+    font-family: var(--serif);
+    font-size: 14px !important; letter-spacing: 0.2em;
+    color: var(--color-text) !important;
+    margin-top: 36px !important;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-line);
+    text-align: right;
+  }
+
+  /* ====== Movie (Founder's Legacy) ====== */
+  .movie {
+    background: #0a0f0c;
+    color: #fff;
+    padding: 160px 40px 140px;
+    position: relative;
+    overflow: hidden;
+  }
+  .movie::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(138,122,79,0.10), transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(47,74,58,0.12), transparent 60%);
+    pointer-events: none;
+  }
+  .movie .container { position: relative; z-index: 1; }
+  .movie-badge {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .movie-badge span {
+    display: inline-block;
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 13px; letter-spacing: 0.4em;
+    color: var(--color-gold);
+    padding: 6px 22px;
+    border-top: 1px solid rgba(138,122,79,0.5);
+    border-bottom: 1px solid rgba(138,122,79,0.5);
+  }
+  .movie-head { text-align: center; margin-bottom: 70px; }
+  .movie-head h2 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: clamp(28px, 4vw, 44px);
+    letter-spacing: 0.15em;
+    line-height: 1.6;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .movie-head h2::after {
+    content: ""; display: block; width: 50px; height: 1px;
+    background: var(--color-gold); margin: 28px auto 0;
+  }
+  .movie-head .section-en {
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 17px; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.7);
+    margin-top: 24px;
+  }
+  .movie-quote {
+    max-width: 720px; margin: 0 auto 60px;
+    text-align: center;
+    font-family: var(--serif);
+    font-size: clamp(15px, 1.6vw, 19px);
+    line-height: 2.2; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.92);
+    font-style: italic;
+    position: relative;
+    padding: 0 40px;
+  }
+  .movie-quote::before, .movie-quote::after {
+    font-family: var(--latin-serif);
+    font-size: 60px; color: var(--color-gold);
+    position: absolute; line-height: 1;
+    opacity: 0.6;
+  }
+  .movie-quote::before { content: "\201C"; top: -20px; left: 0; }
+  .movie-quote::after { content: "\201D"; bottom: -40px; right: 0; }
+  .movie-quote-author {
+    display: block;
+    font-family: var(--latin-serif); font-style: normal;
+    font-size: 12px; letter-spacing: 0.3em;
+    color: var(--color-gold);
+    margin-top: 30px;
+  }
+  .movie-frame {
+    max-width: 1100px; margin: 0 auto;
+    position: relative;
+    aspect-ratio: 16/9;
+    background: #000 center/cover no-repeat;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.7),
+                0 0 0 1px rgba(138,122,79,0.3);
+    transition: transform .5s, box-shadow .5s;
+    filter: brightness(1.05) saturate(1.05);
+  }
+  .movie-frame:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 40px 90px rgba(0,0,0,0.9),
+                0 0 0 1px var(--color-gold);
+  }
+  .movie-frame::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, transparent 0%, transparent 60%, rgba(0,0,0,0.55) 100%);
+    transition: opacity .4s;
+    z-index: 1;
+  }
+  .movie-frame:hover::before { opacity: 0.4; }
+  .movie-frame::after {
+    content: "FOUNDER'S MESSAGE";
+    position: absolute; top: 28px; left: 32px; z-index: 3;
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 12px; letter-spacing: 0.4em;
+    color: var(--color-gold);
+    padding: 6px 14px;
+    border: 1px solid rgba(138,122,79,0.7);
+    background: rgba(0,0,0,0.5);
+  }
+  .movie-play {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    display: flex; align-items: center; justify-content: center;
+    transition: all .4s;
+    z-index: 2;
+    box-shadow: 0 0 0 0 rgba(138,122,79,0.4);
+    animation: moviePulse 2.4s ease-in-out infinite;
+  }
+  @keyframes moviePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(138,122,79,0.5); }
+    50% { box-shadow: 0 0 0 18px rgba(138,122,79,0); }
+  }
+  .movie-frame:hover .movie-play {
+    background: var(--color-gold);
+    transform: translate(-50%, -50%) scale(1.1);
+    animation: none;
+  }
+  .movie-play::after {
+    content: ""; display: block;
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 18px 0 18px 28px;
+    border-color: transparent transparent transparent #0a0f0c;
+    margin-left: 6px;
+    transition: border-color .4s;
+  }
+  .movie-frame:hover .movie-play::after {
+    border-left-color: #fff;
+  }
+  .movie-caption {
+    text-align: center;
+    margin-top: 36px;
+    font-size: 13px; letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.65);
+  }
+  .movie-caption strong {
+    display: block;
+    font-family: var(--serif); font-size: 17px;
+    color: #fff; font-weight: 500;
+    letter-spacing: 0.18em;
+    margin-bottom: 10px;
+  }
+  .movie-caption .play-cta {
+    display: inline-block; margin-top: 12px;
+    color: var(--color-gold);
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 14px; letter-spacing: 0.2em;
+    border-bottom: 1px solid rgba(138,122,79,0.5);
+    padding-bottom: 3px;
+  }
+
+  /* Video Lightbox */
+  .vlightbox {
+    position: fixed; inset: 0;
+    background: rgba(10, 15, 12, 0.94);
+    backdrop-filter: blur(8px);
+    z-index: 300;
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 60px 30px;
+    animation: fadeIn .3s ease;
+  }
+  .vlightbox.is-open { display: flex; }
+  .vlightbox-inner {
+    max-width: 1200px; width: 100%;
+    aspect-ratio: 16/9;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  }
+  .vlightbox iframe {
+    width: 100%; height: 100%; border: 0;
+  }
+  .vlightbox-close {
+    position: absolute; top: -56px; right: 0;
+    width: 44px; height: 44px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 50%;
+    color: #fff; font-size: 20px; cursor: pointer;
+    line-height: 1;
+    transition: all .2s;
+  }
+  .vlightbox-close:hover {
+    background: rgba(255,255,255,0.15);
+    transform: rotate(90deg);
+  }
+
+  /* ====== Awards (Cinematic) ====== */
+  .awards {
+    background: linear-gradient(180deg, #0a0f0c 0%, #131b15 100%);
+    color: #fff;
+    position: relative; overflow: hidden;
+    padding: 160px 40px 140px;
+  }
+  .awards::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 35%, rgba(184,148,75,0.15), transparent 55%),
+      radial-gradient(ellipse at 20% 80%, rgba(47,74,58,0.20), transparent 60%);
+    pointer-events: none;
+  }
+  .awards .container { position: relative; z-index: 1; max-width: 1300px; }
+  .awards .section-head { color: #fff; }
+  .awards .section-label { color: var(--color-gold); }
+  .awards .section-title { color: #fff; }
+  .awards .section-title::after { background: var(--color-gold); }
+
+  /* Hero Award (内閣総理大臣賞) */
+  .awards-hero {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin: 70px 0 100px;
+  }
+  .awards-trophy {
+    position: relative;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 50% 40%, #2a342a 0%, #131b15 60%, #0a0f0c 100%);
+    border: 1px solid rgba(184,148,75,0.3);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .awards-trophy::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 40%, rgba(184,148,75,0.18) 0%, transparent 60%);
+    z-index: 1; pointer-events: none;
+  }
+  .awards-trophy::after {
+    content: ""; position: absolute;
+    top: -1px; left: -1px; right: -1px; bottom: -1px;
+    background: linear-gradient(135deg,
+      transparent 30%,
+      rgba(184,148,75,0.25) 50%,
+      transparent 70%);
+    pointer-events: none;
+    z-index: 3;
+  }
+  .awards-trophy img {
+    max-width: 88%; max-height: 88%;
+    width: auto; height: auto;
+    object-fit: contain;
+    position: relative; z-index: 2;
+    filter: contrast(1.08) saturate(1.05) brightness(1.02)
+            drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+    transition: transform 1.2s;
+  }
+  .awards-trophy:hover img { transform: scale(1.04); }
+  .awards-corner {
+    position: absolute; z-index: 4;
+    width: 30px; height: 30px;
+    border: 1px solid var(--color-gold);
+  }
+  .awards-corner-tl { top: 16px; left: 16px; border-right: 0; border-bottom: 0; }
+  .awards-corner-tr { top: 16px; right: 16px; border-left: 0; border-bottom: 0; }
+  .awards-corner-bl { bottom: 16px; left: 16px; border-right: 0; border-top: 0; }
+  .awards-corner-br { bottom: 16px; right: 16px; border-left: 0; border-top: 0; }
+
+  .awards-hero-text {
+    position: relative;
+  }
+  .awards-hero-tag {
+    display: inline-block;
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 13px; letter-spacing: 0.45em;
+    color: var(--color-gold);
+    padding: 7px 22px;
+    border: 1px solid rgba(184,148,75,0.5);
+    margin-bottom: 32px;
+  }
+  .awards-hero-year {
+    font-family: var(--latin-serif);
+    font-size: 16px; letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 20px;
+  }
+  .awards-hero-year strong {
+    font-family: var(--serif); font-style: normal;
+    color: #fff; font-size: 18px;
+    margin-right: 14px;
+    border-right: 1px solid rgba(184,148,75,0.4);
+    padding-right: 14px;
+  }
+  .awards-hero-title {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1.25; letter-spacing: 0.1em;
+    color: #fff;
+    margin-bottom: 26px;
+  }
+  .awards-hero-title em {
+    display: block;
+    font-family: var(--latin-serif); font-style: italic;
+    font-weight: 400;
+    font-size: clamp(16px, 1.4vw, 20px);
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    margin-top: 14px;
+    text-transform: uppercase;
+  }
+  .awards-hero-event {
+    font-family: var(--serif);
+    font-size: 17px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.92);
+    padding: 16px 0;
+    margin-bottom: 24px;
+    border-top: 1px solid rgba(184,148,75,0.3);
+    border-bottom: 1px solid rgba(184,148,75,0.3);
+  }
+  .awards-hero-event .event-sub {
+    display: block;
+    font-family: var(--sans);
+    font-size: 12px; letter-spacing: 0.2em;
+    color: var(--color-gold);
+    margin-top: 6px;
+  }
+  .awards-hero-desc {
+    font-size: 14px; line-height: 2.1;
+    color: rgba(255,255,255,0.78);
+  }
+  .awards-hero-cert {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(184,148,75,0.3);
+    display: flex; align-items: center; gap: 16px;
+    font-size: 12px; letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.65);
+  }
+  .awards-hero-cert::before {
+    content: "認"; flex-shrink: 0;
+    width: 36px; height: 36px;
+    border: 1px solid var(--color-gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--color-gold);
+  }
+
+  /* Secondary awards row */
+  .awards-secondary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(184,148,75,0.25);
+    padding-top: 60px;
+    margin-bottom: 100px;
+  }
+  .award-item {
+    padding: 0 40px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    transition: all .3s;
+  }
+  .award-item:last-child { border-right: 0; }
+  .award-item:hover { transform: translateY(-3px); }
+  .award-year {
+    font-family: var(--latin-serif);
+    font-size: 12px; letter-spacing: 0.4em;
+    color: var(--color-gold);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .award-name {
+    font-family: var(--serif); font-weight: 600;
+    font-size: 19px; letter-spacing: 0.12em;
+    line-height: 1.5; color: #fff;
+    margin-bottom: 14px;
+  }
+  .award-desc {
+    font-size: 13px; line-height: 2;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .awards-media {
+    border-top: 1px solid rgba(184,148,75,0.25);
+    padding-top: 70px;
+  }
+  .media-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .media-item {
+    text-align: center;
+    padding: 30px 16px;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    transition: all .3s;
+    cursor: pointer;
+    font: inherit; color: inherit;
+    width: 100%;
+    position: relative;
+  }
+  .media-item:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(31,42,42,0.06);
+  }
+  .media-item .media-zoom {
+    position: absolute; top: 10px; right: 12px;
+    font-family: var(--latin-serif);
+    font-size: 11px; letter-spacing: 0.2em;
+    color: var(--color-gold);
+    opacity: 0; transition: opacity .3s;
+  }
+  .media-item:hover .media-zoom { opacity: 1; }
+
+  /* ====== Lightbox ====== */
+  .lightbox {
+    position: fixed; inset: 0;
+    background: rgba(15, 20, 18, 0.92);
+    backdrop-filter: blur(8px);
+    z-index: 300;
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 60px 30px;
+    animation: fadeIn .3s ease;
+  }
+  .lightbox.is-open { display: flex; }
+  .lightbox-inner {
+    max-width: 900px; width: 100%;
+    text-align: center;
+    animation: slideUp .35s ease;
+  }
+  .lightbox img {
+    max-width: 100%; max-height: 75vh;
+    margin: 0 auto;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    background: #fff;
+  }
+  .lightbox-caption {
+    margin-top: 24px;
+    color: #fff;
+  }
+  .lightbox-caption .lb-date {
+    font-family: var(--latin-serif);
+    font-size: 13px; letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 8px;
+  }
+  .lightbox-caption .lb-title {
+    font-family: var(--serif);
+    font-size: 18px; letter-spacing: 0.15em;
+  }
+  .lightbox-close {
+    position: absolute; top: 24px; right: 28px;
+    width: 48px; height: 48px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    color: #fff; font-size: 22px;
+    cursor: pointer; line-height: 1;
+    transition: all .2s;
+  }
+  .lightbox-close:hover {
+    background: rgba(255,255,255,0.2);
+    transform: rotate(90deg);
+  }
+  .media-date {
+    font-family: var(--latin-serif);
+    font-size: 13px; letter-spacing: 0.3em;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .media-title {
+    font-family: var(--serif);
+    font-size: 14px; letter-spacing: 0.1em;
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+
+  /* ====== Categories grid (unused) ====== */
+  .categories { background: var(--color-bg); }
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--color-line);
+  }
+  .cat-item {
+    background: #fff;
+    padding: 60px 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all .4s;
+    position: relative;
+    overflow: hidden;
+  }
+  .cat-item::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(135deg, #2a1410, #5a2818);
+    opacity: 0; transition: opacity .4s;
+  }
+  .cat-item:hover::before { opacity: 1; }
+  .cat-item:hover .cat-img,
+  .cat-item:hover .cat-name,
+  .cat-item:hover .cat-en { color: #fff; position: relative; z-index: 2; }
+  .cat-img {
+    width: 100%; height: 240px;
+    background-size: cover; background-position: center;
+    margin-bottom: 24px;
+    position: relative; z-index: 2;
+    transition: transform .6s;
+  }
+  .cat-item:hover .cat-img { transform: scale(1.04); }
+  .cat-en {
+    font-family: var(--latin-serif); font-size: 12px;
+    letter-spacing: 0.4em; color: var(--color-gold);
+    margin-bottom: 8px; position: relative; z-index: 2;
+    transition: color .4s;
+  }
+  .cat-name {
+    font-family: var(--serif); font-size: 18px;
+    letter-spacing: 0.2em; font-weight: 600;
+    position: relative; z-index: 2;
+    transition: color .4s;
+  }
+
+  /* ====== Three pillars ====== */
+  .pillars { background: #fff; }
+  .pillar-grid {
+    display: grid; grid-template-columns: 1fr; gap: 60px;
+  }
+  .pillar-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  .pillar {
+    text-align: center;
+    cursor: pointer;
+    background: none; border: none; padding: 0;
+    font: inherit; color: inherit;
+    transition: transform .4s;
+  }
+  .pillar:hover { transform: translateY(-6px); }
+  .pillar:hover .pillar-img { box-shadow: 0 16px 40px rgba(0,0,0,0.18); }
+  .pillar-readmore {
+    display: inline-block; margin-top: 20px;
+    font-family: var(--latin-serif); font-size: 12px;
+    letter-spacing: 0.4em; color: var(--color-gold);
+    border-bottom: 1px solid var(--color-gold);
+    padding-bottom: 3px;
+  }
+  /* Featured pillar (初乳) */
+  .pillar-featured {
+    display: grid; grid-template-columns: 1.1fr 1fr;
+    gap: 60px; align-items: center;
+    background: linear-gradient(135deg, #faf6ee 0%, #fff 100%);
+    padding: 80px 60px;
+    text-align: left;
+    border: 1px solid var(--color-line);
+    cursor: pointer;
+    transition: all .4s;
+  }
+  .pillar-featured:hover { box-shadow: 0 20px 50px rgba(0,0,0,0.08); transform: none; }
+  .pillar-featured .pillar-img {
+    aspect-ratio: 4/5;
+    margin-bottom: 0;
+  }
+  .pillar-featured .pillar-num {
+    color: var(--color-accent);
+    margin-bottom: 16px;
+  }
+  .pillar-featured-tag {
+    display: inline-block;
+    font-family: var(--latin-serif); font-size: 11px;
+    letter-spacing: 0.4em; color: #fff;
+    background: var(--color-accent);
+    padding: 6px 14px; margin-bottom: 20px;
+  }
+  .pillar-featured h3 {
+    font-size: 30px !important;
+    margin-bottom: 8px !important;
+    text-align: left !important;
+  }
+  .pillar-featured-sub {
+    font-family: var(--serif); font-size: 16px;
+    color: var(--color-gold); letter-spacing: 0.15em;
+    margin-bottom: 24px;
+  }
+  .pillar-featured p {
+    text-align: left !important;
+    font-size: 14.5px !important;
+    line-height: 2.1 !important;
+  }
+  .pillar-featured .pillar-readmore { margin-top: 28px; }
+
+  /* ====== Modal ====== */
+  .modal-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(10, 5, 5, 0.8);
+    backdrop-filter: blur(6px);
+    z-index: 200;
+    display: none;
+    align-items: flex-start; justify-content: center;
+    padding: 60px 20px;
+    overflow-y: auto;
+    animation: fadeIn .3s ease;
+  }
+  .modal-backdrop.is-open { display: flex; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .modal {
+    background: var(--color-bg);
+    max-width: 880px; width: 100%;
+    margin: auto;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    animation: slideUp .4s ease;
+  }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .modal-close {
+    position: absolute; top: 20px; right: 20px;
+    width: 44px; height: 44px;
+    background: rgba(255,255,255,0.9);
+    border: none; border-radius: 50%;
+    font-size: 20px; cursor: pointer;
+    z-index: 3;
+    transition: all .2s;
+    line-height: 1;
+  }
+  .modal-close:hover { background: #fff; transform: rotate(90deg); }
+  .modal-hero {
+    width: 100%; height: 320px;
+    background-size: cover; background-position: center;
+    position: relative;
+  }
+  .modal-hero::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(10,5,5,0.7));
+  }
+  .modal-hero-text {
+    position: absolute; left: 50px; bottom: 40px;
+    color: #fff; z-index: 2;
+  }
+  .modal-label {
+    font-family: var(--latin-serif);
+    font-size: 12px; letter-spacing: 0.4em;
+    color: var(--color-gold); margin-bottom: 8px;
+  }
+  .modal-title {
+    font-family: var(--serif); font-weight: 600;
+    font-size: 32px; letter-spacing: 0.15em;
+  }
+  .modal-body {
+    padding: 60px;
+  }
+  .modal-body h3 {
+    font-family: var(--serif); font-size: 20px;
+    font-weight: 600; letter-spacing: 0.1em;
+    margin: 36px 0 14px;
+    padding-left: 14px;
+    border-left: 3px solid var(--color-gold);
+  }
+  .modal-body h3:first-child { margin-top: 0; }
+  .modal-body p {
+    font-size: 14.5px; line-height: 2;
+    color: #333; margin-bottom: 14px;
+  }
+  .modal-body .modal-lead {
+    font-family: var(--serif);
+    font-size: clamp(15px, 1.5vw, 18px);
+    line-height: 2.1; letter-spacing: 0.06em;
+    color: var(--color-accent-deep);
+    text-align: center;
+    margin: -10px 0 40px;
+    padding: 30px 30px;
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    background: linear-gradient(180deg, transparent, rgba(47,74,58,0.03), transparent);
+  }
+  .modal-body ul { padding-left: 20px; margin: 12px 0 18px; }
+  .modal-body li {
+    font-size: 14.5px; line-height: 2;
+    color: #333; margin-bottom: 6px;
+  }
+  .modal-body strong { color: var(--color-accent); font-weight: 600; }
+  .modal-images {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 16px; margin: 24px 0 30px;
+  }
+  .modal-images img {
+    width: 100%; aspect-ratio: 4/3; object-fit: cover;
+  }
+  .modal-images figure { margin: 0; }
+  .modal-images figcaption {
+    font-size: 11px; color: var(--color-muted);
+    margin-top: 6px; letter-spacing: 0.05em;
+  }
+  body.modal-open { overflow: hidden; }
+
+  @media (max-width: 768px) {
+    .modal-backdrop { padding: 0; }
+    .modal { max-width: 100%; }
+    .modal-hero { height: 200px; }
+    .modal-hero-text { left: 20px; bottom: 20px; }
+    .modal-title { font-size: 22px; }
+    .modal-body { padding: 30px 20px; }
+    .modal-images { grid-template-columns: 1fr; }
+  }
+  .pillar-num {
+    font-family: var(--latin-serif); font-size: 14px;
+    letter-spacing: 0.4em; color: var(--color-gold);
+    margin-bottom: 20px;
+  }
+  .pillar-img {
+    width: 100%; aspect-ratio: 4/3;
+    background-size: cover; background-position: center;
+    margin-bottom: 32px;
+    position: relative;
+    image-rendering: -webkit-optimize-contrast;
+    filter: contrast(1.06) saturate(1.08) brightness(1.02);
+    transition: filter .4s, box-shadow .4s;
+  }
+  .pillar-img::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.18) 100%),
+      linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.35));
+  }
+  .modal-hero {
+    image-rendering: -webkit-optimize-contrast;
+    filter: contrast(1.05) saturate(1.06);
+  }
+  .modal-images img {
+    image-rendering: -webkit-optimize-contrast;
+    filter: contrast(1.04) saturate(1.05);
+  }
+  .pillar h3 {
+    font-family: var(--serif); font-size: 22px;
+    letter-spacing: 0.2em; font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .pillar p {
+    font-size: 14px; line-height: 2;
+    color: var(--color-muted); text-align: left;
+  }
+
+  /* ====== News ====== */
+  .news { background: var(--color-bg); }
+  .news-list { max-width: 880px; margin: 0 auto; }
+  .news-item {
+    display: grid;
+    grid-template-columns: 140px 120px 1fr;
+    gap: 24px; align-items: baseline;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--color-line);
+    transition: padding .3s;
+  }
+  .news-item:hover { padding-left: 12px; }
+  .news-date {
+    font-family: var(--latin-serif); font-size: 14px;
+    letter-spacing: 0.2em; color: var(--color-muted);
+  }
+  .news-cat {
+    font-size: 11px; letter-spacing: 0.2em;
+    background: var(--color-text); color: #fff;
+    padding: 4px 12px; text-align: center;
+    width: fit-content;
+  }
+  .news-cat.event { background: var(--color-accent); }
+  .news-cat.media { background: var(--color-gold); }
+  .news-title { font-size: 15px; }
+  .news-more {
+    text-align: center; margin-top: 60px;
+  }
+  .news-more a {
+    font-family: var(--latin-serif); font-size: 13px;
+    letter-spacing: 0.4em; padding-bottom: 4px;
+    border-bottom: 1px solid var(--color-text);
+  }
+
+  /* ====== Shop CTA ====== */
+  .cta {
+    background: linear-gradient(135deg, var(--color-accent-deep) 0%, var(--color-accent) 100%);
+    color: #fff; text-align: center;
+    padding: 120px 40px;
+    position: relative; overflow: hidden;
+  }
+  .cta::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.06), transparent 50%),
+      radial-gradient(ellipse at 70% 70%, rgba(138,122,79,0.12), transparent 50%);
+  }
+  .cta .container { position: relative; z-index: 1; }
+  .cta-label {
+    font-family: var(--latin-serif); font-size: 13px;
+    letter-spacing: 0.4em; color: rgba(255,255,255,0.85);
+    margin-bottom: 16px;
+  }
+  .cta h2 {
+    font-family: var(--serif); font-size: clamp(24px, 3vw, 34px);
+    letter-spacing: 0.15em; margin-bottom: 24px;
+    color: #fff;
+  }
+  .cta p {
+    max-width: 540px; margin: 0 auto 40px;
+    font-size: 14px; line-height: 2;
+    color: rgba(255,255,255,0.85);
+  }
+  .cta-btn {
+    display: inline-block; padding: 18px 60px;
+    background: #fff; color: var(--color-accent-deep) !important;
+    font-size: 13px; letter-spacing: 0.3em; font-weight: 500;
+    border: 1px solid #fff;
+    transition: all .3s;
+  }
+  .cta-btn:hover {
+    background: transparent; color: #fff !important;
+    opacity: 1;
+  }
+  .cta-shop-note {
+    margin-top: 70px; padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 13px; color: rgba(255,255,255,0.8);
+    line-height: 2;
+  }
+  .cta-shop-note a {
+    display: inline-block; margin-top: 8px;
+    font-family: var(--latin-serif); font-size: 12px;
+    letter-spacing: 0.3em; color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+    padding-bottom: 2px;
+  }
+  /* ====== Difference (Comparison) ====== */
+  .diff-block {
+    max-width: 1200px; margin: 0 auto 110px;
+    padding: 70px 50px;
+    background: linear-gradient(180deg, #faf8f1 0%, #f4eedd 100%);
+    border: 1px solid var(--color-line);
+    position: relative;
+  }
+  .diff-block::before {
+    content: ""; position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg,
+      transparent,
+      var(--color-gold),
+      transparent);
+  }
+  .diff-head {
+    text-align: center; margin-bottom: 50px;
+  }
+  .diff-label {
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 13px; letter-spacing: 0.5em;
+    color: var(--color-gold);
+    margin-bottom: 14px;
+    display: inline-block;
+    padding: 0 30px;
+    border-top: 1px solid rgba(184,148,75,0.5);
+    border-bottom: 1px solid rgba(184,148,75,0.5);
+    line-height: 36px;
+  }
+  .diff-title {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(24px, 3vw, 36px);
+    letter-spacing: 0.15em; line-height: 1.5;
+    color: var(--color-text);
+    margin-top: 18px;
+  }
+  .diff-graph {
+    text-align: center;
+    margin: 20px 0 40px;
+  }
+  .diff-graph img {
+    max-width: 100%; width: 100%;
+    border: 1px solid var(--color-line);
+    background: #fff;
+    padding: 20px;
+  }
+  .diff-graph-caption {
+    font-size: 13px; line-height: 2;
+    color: var(--color-muted);
+    margin-top: 18px;
+    max-width: 800px; margin-left: auto; margin-right: auto;
+  }
+  .diff-graph-caption strong {
+    color: var(--color-accent-deep);
+    background: linear-gradient(transparent 65%, rgba(184,148,75,0.3) 65%);
+    padding: 0 4px;
+  }
+  .diff-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--color-line);
+    margin-top: 50px;
+  }
+  .diff-stat {
+    background: #fff;
+    padding: 36px 20px 30px;
+    text-align: center;
+  }
+  .diff-stat-num {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(22px, 2.4vw, 32px);
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+    line-height: 1.15;
+  }
+  .diff-stat-num small {
+    font-family: var(--sans); font-size: 12px;
+    letter-spacing: 0.1em;
+    display: block; margin-top: 4px;
+    color: var(--color-muted);
+    font-weight: 400;
+  }
+  .diff-stat-label {
+    font-family: var(--serif);
+    font-size: 14px; letter-spacing: 0.15em;
+    color: var(--color-text);
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .diff-stat-vs {
+    font-size: 11.5px; line-height: 1.7;
+    color: var(--color-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ====== About Kobe Takami Beef (detailed) ====== */
+  .aboutbeef {
+    background: #fff;
+    padding: 140px 40px 120px;
+    position: relative;
+  }
+  .aboutbeef-lead {
+    max-width: 820px; margin: 0 auto 100px;
+    text-align: center;
+    position: relative;
+    padding: 50px 60px;
+  }
+  .aboutbeef-lead::before, .aboutbeef-lead::after {
+    content: ""; position: absolute;
+    width: 50px; height: 1px;
+    background: var(--color-gold);
+  }
+  .aboutbeef-lead::before { top: 0; left: 50%; transform: translateX(-50%); }
+  .aboutbeef-lead::after { bottom: 0; left: 50%; transform: translateX(-50%); }
+  .aboutbeef-lead-text {
+    font-family: var(--serif); font-weight: 500;
+    font-size: clamp(17px, 1.7vw, 22px);
+    line-height: 2.2; letter-spacing: 0.12em;
+    color: var(--color-accent-deep);
+  }
+  .aboutbeef-lead-text strong { color: var(--color-text); }
+
+  .aboutbeef-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+    margin-bottom: 100px;
+    max-width: 1200px;
+    margin-left: auto; margin-right: auto;
+  }
+  .aboutbeef-row.reverse .aboutbeef-row-img { order: 2; }
+  .aboutbeef-row.reverse .aboutbeef-row-text { order: 1; }
+  .aboutbeef-row-img {
+    aspect-ratio: 4/3;
+    background-size: cover;
+    background-position: center;
+    background-color: #f4efe2;
+    background-repeat: no-repeat;
+    position: relative;
+    box-shadow: 0 16px 36px rgba(31,42,42,0.10);
+  }
+  .aboutbeef-row-img.contain {
+    background-size: contain;
+    background-color: #fff;
+    border: 1px solid var(--color-line);
+    box-shadow: none;
+  }
+  .aboutbeef-row-num {
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 14px; letter-spacing: 0.4em;
+    color: var(--color-gold);
+    margin-bottom: 14px;
+  }
+  .aboutbeef-row-title {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(22px, 2.4vw, 30px);
+    letter-spacing: 0.14em; line-height: 1.55;
+    margin-bottom: 24px;
+    color: var(--color-text);
+  }
+  .aboutbeef-row-title em {
+    display: block;
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 13px; font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+  .aboutbeef-row-text p {
+    font-size: 14.5px; line-height: 2.05;
+    color: var(--color-text);
+    margin-bottom: 14px;
+  }
+  .aboutbeef-row-text strong {
+    color: var(--color-accent-deep); font-weight: 600;
+  }
+  .aboutbeef-row-text .highlight {
+    display: inline-block;
+    background: linear-gradient(transparent 65%, rgba(184,148,75,0.25) 65%);
+    padding: 0 4px;
+  }
+  .aboutbeef-cta {
+    text-align: center; margin-top: 30px;
+  }
+  .aboutbeef-cta a {
+    display: inline-block;
+    padding: 16px 48px;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 13px; letter-spacing: 0.3em;
+    transition: all .3s;
+  }
+  .aboutbeef-cta a:hover {
+    background: var(--color-accent); color: #fff;
+    opacity: 1;
+  }
+
+  /* ====== Stores / Restaurants ====== */
+  .stores {
+    background: #fff;
+    padding: 140px 40px;
+    border-top: 1px solid var(--color-line);
+  }
+  .stores-intro {
+    max-width: 700px; margin: 0 auto 70px;
+    text-align: center;
+    font-size: 14.5px; line-height: 2.2;
+    color: var(--color-muted);
+  }
+  .stores-cat {
+    margin-bottom: 80px;
+  }
+  .stores-cat-head {
+    display: flex; align-items: baseline;
+    gap: 24px; margin-bottom: 30px;
+    border-bottom: 1px solid var(--color-line);
+    padding-bottom: 16px;
+  }
+  .stores-cat-en {
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 28px; font-weight: 500;
+    color: var(--color-accent);
+    letter-spacing: 0.04em;
+  }
+  .stores-cat-jp {
+    font-family: var(--serif);
+    font-size: 18px; font-weight: 600;
+    letter-spacing: 0.18em;
+  }
+  .stores-cat-num {
+    margin-left: auto;
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 13px; letter-spacing: 0.3em;
+    color: var(--color-gold);
+  }
+  .stores-grid {
+    display: grid; gap: 30px;
+  }
+  .stores-grid-1 { grid-template-columns: 1fr; }
+  .stores-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .stores-grid-5 { grid-template-columns: repeat(5, 1fr); }
+  .store-item {
+    background: #fff;
+    border: 1px solid var(--color-line);
+    transition: all .3s;
+    overflow: hidden;
+    text-align: left;
+    color: inherit;
+  }
+  button.store-item {
+    cursor: pointer;
+    font: inherit;
+    width: 100%;
+    padding: 0;
+  }
+  .store-item:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(31,42,42,0.07);
+  }
+  .store-item.featured {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 0;
+  }
+  .store-img {
+    aspect-ratio: 16/10;
+    background-size: cover; background-position: center;
+    background-color: #e8e2d4;
+  }
+  .store-item.featured .store-img {
+    aspect-ratio: auto;
+    min-height: 280px;
+  }
+  .store-body {
+    padding: 30px 28px;
+  }
+  .store-item.featured .store-body {
+    padding: 50px 50px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .store-tag {
+    display: inline-block;
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 11px; letter-spacing: 0.3em;
+    color: var(--color-gold);
+    margin-bottom: 10px;
+  }
+  .store-name {
+    font-family: var(--serif); font-weight: 600;
+    font-size: 19px; letter-spacing: 0.12em;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .store-item.featured .store-name {
+    font-size: clamp(22px, 2.2vw, 28px);
+    margin-bottom: 18px;
+  }
+  .store-info {
+    font-size: 13px; line-height: 2;
+    color: var(--color-muted);
+    margin-bottom: 14px;
+  }
+  .store-info strong {
+    color: var(--color-text); font-weight: 500;
+    display: inline-block; min-width: 60px;
+    margin-right: 8px;
+  }
+  .store-desc {
+    font-size: 13.5px; line-height: 1.9;
+    color: var(--color-muted);
+    margin-bottom: 16px;
+  }
+  .store-link {
+    display: inline-block;
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 12px; letter-spacing: 0.3em;
+    color: var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 2px;
+  }
+  .stores-coop-note {
+    grid-column: 1 / -1;
+    text-align: center; margin-top: 16px;
+    font-size: 12px; color: var(--color-muted);
+    letter-spacing: 0.1em;
+  }
+  .store-mini { padding: 0; }
+  .store-mini .store-img { aspect-ratio: 4/3; }
+  .store-mini .store-body { padding: 18px 16px; text-align: center; }
+  .store-mini .store-name {
+    font-size: 14px; letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  .store-mini .store-desc {
+    font-size: 11.5px; line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* ====== Company Profile ====== */
+  .company {
+    background: var(--color-bg);
+    padding: 140px 40px;
+    border-top: 1px solid var(--color-line);
+  }
+  .company-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .company-card {
+    background: #fff;
+    border: 1px solid var(--color-line);
+    padding: 50px 40px;
+    transition: all .3s;
+    position: relative;
+  }
+  .company-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 16px 36px rgba(31,42,42,0.07);
+  }
+  .company-card-no {
+    position: absolute; top: 30px; right: 36px;
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 80px; font-weight: 400;
+    color: rgba(47,74,58,0.08);
+    line-height: 1;
+  }
+  .company-card h3 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: 22px; letter-spacing: 0.12em;
+    line-height: 1.5;
+    margin-bottom: 6px;
+    position: relative; z-index: 1;
+  }
+  .company-card .company-jurisdiction {
+    font-family: var(--latin-serif); font-style: italic;
+    font-size: 13px; letter-spacing: 0.2em;
+    color: var(--color-gold);
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .company-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .company-table th, .company-table td {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-line);
+    font-size: 13.5px; line-height: 1.8;
+    text-align: left; vertical-align: top;
+  }
+  .company-table th {
+    width: 110px;
+    font-family: var(--serif); font-weight: 500;
+    color: var(--color-accent);
+    letter-spacing: 0.1em;
+  }
+  .company-table td {
+    color: var(--color-text);
+  }
+  .company-table td a {
+    color: var(--color-accent);
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  /* ====== Gift Special ====== */
+  .gift {
+    background: linear-gradient(180deg, #fbf7ee 0%, #f6f0df 100%);
+    padding: 130px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .gift::before {
+    content: "GIFT";
+    position: absolute; top: 60px; right: 60px;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: clamp(120px, 18vw, 240px);
+    line-height: 0.9;
+    color: rgba(201,165,90,0.10);
+    letter-spacing: 0.04em;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .gift .container { position: relative; z-index: 1; }
+  .gift-head { text-align: center; margin-bottom: 70px; }
+  .gift-label {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.5em;
+    color: var(--color-gold);
+    margin-bottom: 18px;
+    display: inline-block;
+  }
+  .gift-title {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 600;
+    font-size: clamp(28px, 3.6vw, 42px);
+    letter-spacing: 0.18em;
+    color: #1a1a1a;
+    line-height: 1.5;
+  }
+  .gift-title::after {
+    content: ""; display: block; width: 50px; height: 1px;
+    background: var(--color-gold); margin: 24px auto 0;
+  }
+  .gift-sub {
+    text-align: center;
+    font-size: 14px; line-height: 2;
+    color: var(--color-muted);
+    max-width: 640px;
+    margin: 24px auto 0;
+    letter-spacing: 0.1em;
+  }
+  .gift-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .gift-card {
+    background: #fff;
+    border: 1px solid rgba(201,165,90,0.25);
+    text-decoration: none;
+    color: inherit;
+    transition: all .4s cubic-bezier(.2,.7,.2,1);
+    position: relative;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .gift-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-gold);
+    box-shadow: 0 20px 40px rgba(31,42,42,0.10);
+    opacity: 1;
+  }
+  .gift-card-img {
+    aspect-ratio: 4/5;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .gift-card-img::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.45));
+  }
+  .gift-card:hover .gift-card-img > .ph-zoom { transform: scale(1.06); }
+  .ph-zoom {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    transition: transform 1s cubic-bezier(.2,.7,.2,1);
+  }
+  .gift-card-tag {
+    position: absolute; top: 14px; left: 14px;
+    z-index: 2;
+    padding: 5px 12px;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: #fff;
+    background: rgba(139,19,32,0.85);
+    border: 1px solid rgba(201,165,90,0.5);
+  }
+  .gift-card-body {
+    padding: 22px 22px 26px;
+    background: #fff;
+    flex: 1;
+    display: flex; flex-direction: column;
+  }
+  .gift-card h3 {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.14em;
+    line-height: 1.55;
+    margin-bottom: 8px;
+  }
+  .gift-card p {
+    font-size: 12.5px;
+    line-height: 1.85;
+    color: var(--color-muted);
+    margin-bottom: 14px;
+    flex: 1;
+  }
+  .gift-card .gift-link {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 2px;
+    align-self: flex-start;
+  }
+  @media (max-width: 980px) {
+    .gift-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .gift-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ====== Season Calendar ====== */
+  .season {
+    background: #1a1310;
+    color: #fff;
+    padding: 130px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .season::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 0%, rgba(201,165,90,0.10), transparent 50%),
+      radial-gradient(ellipse at 70% 100%, rgba(139,19,32,0.18), transparent 60%);
+  }
+  .season .container { position: relative; z-index: 1; max-width: 1200px; }
+  .season-head { text-align: center; margin-bottom: 70px; }
+  .season-label {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.5em;
+    color: var(--color-gold);
+    margin-bottom: 18px;
+    display: inline-block;
+  }
+  .season-title {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 600;
+    font-size: clamp(28px, 3.6vw, 42px);
+    letter-spacing: 0.18em;
+    color: #fff;
+    line-height: 1.5;
+  }
+  .season-title::after {
+    content: ""; display: block; width: 50px; height: 1px;
+    background: var(--color-gold); margin: 24px auto 0;
+  }
+  .season-sub {
+    text-align: center;
+    font-size: 14px; line-height: 2;
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    margin: 24px auto 0;
+    letter-spacing: 0.1em;
+  }
+  .season-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+  }
+  .season-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,165,90,0.25);
+    padding: 30px 22px 26px;
+    transition: all .4s;
+    text-align: center;
+    position: relative;
+  }
+  .season-card:hover {
+    background: rgba(201,165,90,0.10);
+    border-color: var(--color-gold);
+    transform: translateY(-4px);
+  }
+  .season-icon {
+    font-size: 32px;
+    line-height: 1;
+    margin-bottom: 18px;
+  }
+  .season-card h3 {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.18em;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .season-card .month {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--color-gold);
+    margin-bottom: 18px;
+  }
+  .season-card p {
+    font-size: 12.5px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.68);
+    text-align: left;
+  }
+  .season-niku-day {
+    margin-top: 60px;
+    text-align: center;
+    padding: 30px;
+    border: 1px solid rgba(201,165,90,0.4);
+    background: linear-gradient(180deg, rgba(139,19,32,0.18), transparent);
+  }
+  .season-niku-day h4 {
+    font-family: "Noto Serif JP", serif;
+    font-size: clamp(20px, 2.4vw, 28px);
+    letter-spacing: 0.18em;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .season-niku-day h4 .gold {
+    color: var(--color-gold);
+    font-family: "Cormorant Garamond", "Noto Serif JP", serif;
+    font-style: italic;
+    font-weight: 500;
+  }
+  .season-niku-day p {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.9;
+  }
+  @media (max-width: 980px) {
+    .season-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .season-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .season-card { padding: 22px 14px 20px; }
+  }
+
+  /* ====== Instagram Feed (黒×金 和モダン) ====== */
+  .instafeed {
+    --gold: #c9a55a;
+    --gold-bright: #e0c378;
+    background: #0a0606;
+    color: #fff;
+    padding: 130px 40px 110px;
+    position: relative;
+    overflow: hidden;
+  }
+  .instafeed::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(201,165,90,0.10), transparent 55%),
+      radial-gradient(ellipse at 80% 100%, rgba(139,19,32,0.10), transparent 55%);
+    pointer-events: none;
+  }
+  .instafeed .container { position: relative; z-index: 1; max-width: 1300px; }
+
+  .instafeed-head {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .instafeed-label {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic; font-weight: 500;
+    font-size: 13px; letter-spacing: 0.5em;
+    color: var(--gold);
+    margin-bottom: 22px;
+  }
+  .instafeed-label::before, .instafeed-label::after {
+    content: ""; display: inline-block;
+    width: 36px; height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+  .instafeed-title {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 600;
+    font-size: clamp(26px, 3.4vw, 40px);
+    letter-spacing: 0.18em;
+    color: #fff;
+    margin-bottom: 18px;
+    text-shadow: 0 4px 20px rgba(201,165,90,0.15);
+  }
+  .instafeed-title::after {
+    content: ""; display: block;
+    width: 50px; height: 1px;
+    background: var(--gold);
+    margin: 22px auto 0;
+  }
+  .instafeed-tagline {
+    font-size: 14px; line-height: 1.9;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.72);
+  }
+  .instafeed-tagline a {
+    color: var(--gold-bright);
+    border-bottom: 1px dotted var(--gold);
+    padding-bottom: 1px;
+    transition: opacity .3s;
+  }
+  .instafeed-tagline a:hover { opacity: 0.75; }
+
+  /* Grid: 5 cols on PC, 3 cols on tablet, 3 cols on mobile */
+  .instafeed-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 1100px) {
+    .instafeed-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .instafeed-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  }
+
+  .insta-item {
+    position: relative;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background: #1a0e0e;
+    border: 1px solid rgba(201,165,90,0.18);
+    cursor: pointer;
+    display: block;
+    transition: transform .5s cubic-bezier(.2,.7,.2,1),
+                box-shadow .5s,
+                border-color .3s;
+  }
+  .insta-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1s cubic-bezier(.2,.7,.2,1),
+                filter .5s;
+    filter: contrast(1.05) saturate(1.05) brightness(0.96);
+  }
+  .insta-item::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6) 100%);
+    z-index: 2;
+    opacity: 0; transition: opacity .35s;
+  }
+  .insta-item::after {
+    content: "❖";
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    z-index: 3;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    background: rgba(10,6,6,0.65);
+    color: var(--gold-bright);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0;
+    transition: all .4s cubic-bezier(.2,.7,.2,1);
+  }
+  .insta-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.6),
+                0 0 0 1px rgba(201,165,90,0.4);
+    z-index: 5;
+  }
+  .insta-item:hover img {
+    transform: scale(1.10);
+    filter: contrast(1.10) saturate(1.12) brightness(1.05);
+  }
+  .insta-item:hover::before { opacity: 1; }
+  .insta-item:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .insta-caption {
+    position: absolute;
+    left: 14px; right: 14px; bottom: 12px;
+    z-index: 4;
+    color: #fff;
+    font-family: "Noto Serif JP", serif;
+    font-size: 11.5px; letter-spacing: 0.1em;
+    line-height: 1.55;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .4s ease .15s, transform .4s ease .15s;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    pointer-events: none;
+  }
+  .insta-item:hover .insta-caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Follow CTA */
+  .instafeed-cta {
+    text-align: center;
+  }
+  .instafeed-cta a {
+    display: inline-flex; align-items: center; gap: 14px;
+    padding: 18px 44px;
+    background: linear-gradient(180deg, rgba(201,165,90,0.12), rgba(201,165,90,0.04));
+    border: 1px solid var(--gold);
+    color: var(--gold-bright) !important;
+    font-family: "Noto Serif JP", serif;
+    font-size: 14px; font-weight: 600;
+    letter-spacing: 0.25em;
+    transition: all .35s;
+  }
+  .instafeed-cta a .ig-handle {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: rgba(224,195,120,0.85);
+  }
+  .instafeed-cta a:hover {
+    background: var(--gold);
+    color: #0a0606 !important;
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(201,165,90,0.30);
+  }
+  .instafeed-cta a:hover .ig-handle { color: #0a0606; }
+
+  /* ====== Group / Sister ====== */
+  .group { background: #fff; }
+  .group-list {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;
+  }
+  .group-item {
+    border: 1px solid var(--color-line);
+    padding: 40px;
+    transition: all .3s;
+  }
+  .group-item:hover {
+    border-color: var(--color-gold);
+    transform: translateY(-4px);
+  }
+  .group-item h3 {
+    font-family: var(--serif); font-size: 18px;
+    letter-spacing: 0.15em; margin-bottom: 12px;
+  }
+  .group-item p { font-size: 13px; color: var(--color-muted); margin-bottom: 16px; }
+  .group-item .link {
+    font-family: var(--latin-serif); font-size: 12px;
+    letter-spacing: 0.3em; color: var(--color-gold);
+  }
+
+  /* ====== Footer ====== */
+  .footer {
+    background: #1a1a1a; color: #fff;
+    padding: 80px 40px 40px;
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px; padding-bottom: 60px;
+    border-bottom: 1px solid #333;
+  }
+  .footer-logo {
+    display: inline-block;
+    line-height: 0;
+    margin-bottom: 24px;
+  }
+  .footer-logo img {
+    height: 90px; width: auto;
+    display: block;
+  }
+  .footer-info { font-size: 13px; line-height: 2; color: #aaa; }
+  .footer-col h4 {
+    font-family: var(--latin-serif); font-size: 12px;
+    letter-spacing: 0.4em; color: var(--color-gold);
+    margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { padding: 6px 0; font-size: 13px; }
+  .footer-col li a { color: #ccc; }
+  .footer-bottom {
+    padding-top: 30px; text-align: center;
+    font-size: 11px; letter-spacing: 0.2em; color: #666;
+    font-family: var(--latin-serif);
+  }
+
+  /* ====== Responsive ====== */
+  @media (max-width: 768px) {
+    .header { padding: 14px 20px; }
+    .nav { display: none; }
+    .nav .shop-btn { display: inline-block; }
+    .nav { display: flex; }
+    .nav a:not(.shop-btn) { display: none; }
+    .shop-btn { padding: 10px 18px; font-size: 11px; }
+    section { padding: 80px 20px; }
+    .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    .pillar-grid { grid-template-columns: 1fr; gap: 60px; }
+    .story-container { grid-template-columns: 1fr; gap: 50px; }
+    .story-text { padding-left: 0; }
+    .pillar-featured { grid-template-columns: 1fr; padding: 40px 24px; gap: 30px; }
+    .pillar-featured h3 { font-size: 22px !important; }
+    .pillar-row { grid-template-columns: 1fr; gap: 60px; }
+    .movie { padding: 80px 20px; }
+    .movie-play { width: 70px; height: 70px; }
+    .movie-play::after { border-width: 12px 0 12px 18px; }
+    .vlightbox { padding: 20px; }
+    .vlightbox-close { top: -50px; right: 0; }
+    .aboutus { padding: 80px 24px; }
+    .aboutus-grid { grid-template-columns: 1fr; gap: 40px; }
+    .aboutus-title { font-size: 56px !important; margin-bottom: 30px; }
+    .aboutus-map { aspect-ratio: 4/5; max-width: 480px; margin: 0 auto; }
+    .aboutus-script { font-size: 26px; }
+    .aboutus-loc { font-size: 11px; }
+    .slider { aspect-ratio: 4/5; }
+    .slide-caption { left: 24px; bottom: 70px; }
+    .slider-dots { right: 24px; bottom: 28px; }
+    .awards { padding: 80px 24px; }
+    .awards-hero { grid-template-columns: 1fr; gap: 40px; margin: 50px 0 60px; }
+    .awards-trophy { aspect-ratio: 1/1; max-width: 500px; margin: 0 auto; }
+    .awards-secondary { grid-template-columns: 1fr; gap: 30px; padding-top: 40px; }
+    .award-item { padding: 24px 0; border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .award-item:last-child { border-bottom: 0; }
+    .aboutbeef { padding: 80px 24px; }
+    .aboutbeef-lead { padding: 30px 20px; margin-bottom: 60px; }
+    .aboutbeef-row { grid-template-columns: 1fr; gap: 30px; margin-bottom: 60px; }
+    .aboutbeef-row.reverse .aboutbeef-row-img { order: 0; }
+    .aboutbeef-row.reverse .aboutbeef-row-text { order: 1; }
+    .diff-block { padding: 40px 20px; margin-bottom: 70px; }
+    .diff-stats { grid-template-columns: 1fr 1fr; }
+    .diff-stat { padding: 24px 14px 22px; }
+    .diff-stat-num { font-size: 19px; }
+    .diff-stat-vs { font-size: 11px; }
+    .stores { padding: 80px 24px; }
+    .stores-grid-2, .stores-grid-5 { grid-template-columns: 1fr; }
+    .store-item.featured { grid-template-columns: 1fr; }
+    .store-item.featured .store-img { aspect-ratio: 16/10; min-height: 0; }
+    .store-item.featured .store-body { padding: 30px 24px; }
+    .stores-cat-head { flex-wrap: wrap; gap: 12px; }
+    .stores-cat-num { margin-left: 0; }
+    .company { padding: 80px 24px; }
+    .company-grid { grid-template-columns: 1fr; }
+    .company-card { padding: 36px 28px; }
+    .company-card-no { font-size: 60px; top: 20px; right: 24px; }
+    .company-table th { width: 90px; font-size: 12px; }
+    .company-table td { font-size: 12.5px; }
+    .awards-grid { grid-template-columns: 1fr; }
+    .award-featured { grid-row: auto; padding: 40px 30px; }
+    .media-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .news-item { grid-template-columns: 1fr; gap: 8px; }
+    .group-list { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo" aria-label="KOBE Takami Beef">
+      <img src="images/logo.png"
+           onerror="this.onerror=null;this.src='https://takamibeef.com/wp/wp-content/uploads/2025/11/load-logo.png';"
+           alt="KOBE Takami Beef">
+    </a>
+    <nav class="nav">
+      <a href="#concept">コンセプト</a>
+      <a href="#aboutbeef">神戸髙見牛</a>
+      <a href="#awards">受賞歴</a>
+      <a href="#gift">ギフト</a>
+      <a href="#season">季節</a>
+      <a href="#stores">店舗</a>
+      <a href="#contact" class="shop-btn">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero (Luxury Edition) -->
+<section class="hero">
+  <div class="hero-frame" aria-hidden="true">
+    <span class="hero-frame-corner tl"></span>
+    <span class="hero-frame-corner tr"></span>
+    <span class="hero-frame-corner bl"></span>
+    <span class="hero-frame-corner br"></span>
+  </div>
+
+  <div class="hero-content">
+
+    <!-- 内閣総理大臣賞バッジ -->
+    <div class="hero-badge">
+      <span class="hero-badge-text">
+        内閣総理大臣賞 受賞
+        <span class="hero-badge-year">PRIME MINISTER&apos;S AWARD &nbsp;/&nbsp; 第6回 全国和牛能力共進会</span>
+      </span>
+    </div>
+
+    <!-- メインキャッチ -->
+    <h1>
+      <span class="num">五年</span>に一度、<br>日本一<span class="accent">。</span>
+    </h1>
+
+    <!-- 装飾ディバイダー -->
+    <div class="hero-divider" aria-hidden="true">
+      <span class="line"></span>
+      <span class="ornament">❖</span>
+      <span class="line"></span>
+    </div>
+
+    <!-- ブランド名 -->
+    <div class="hero-brand">神戸髙見牛</div>
+    <div class="hero-brand-en">KOBE TAKAMI BEEF</div>
+
+    <!-- ブランドタグライン -->
+    <p class="hero-tagline">霜降りの、その先の旨味<span class="dot">。</span></p>
+
+    <!-- サブコピー -->
+    <p class="hero-sub">
+      豊かな自然と五十年の経験が育む、<br>希少なるブランド和牛。
+    </p>
+
+    <!-- CTAボタン4種 -->
+    <div class="hero-ctas">
+      <a class="hero-cta primary" href="https://ichiba.libecity.com/seller/products" target="_blank" rel="noopener">
+        オンラインショップ
+        <span class="cta-en">SHOP NOW</span>
+      </a>
+      <a class="hero-cta" href="#stores">
+        ご予約
+        <span class="cta-en">RESERVE</span>
+      </a>
+      <a class="hero-cta" href="#stores">
+        ギフト特集
+        <span class="cta-en">GIFT</span>
+      </a>
+      <a class="hero-cta" href="#stores">
+        BBQ特集
+        <span class="cta-en">BBQ SET</span>
+      </a>
+    </div>
+
+    <!-- 信頼バッジ列 -->
+    <div class="hero-trust" aria-hidden="true">
+      <span>SINCE 1982</span>
+      <span>1,200 HEAD</span>
+      <span>3 FARMS in TAMBA</span>
+      <span>PAT. No.3413169</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- Sticky bottom bar (mobile only) -->
+<nav class="stickybar" aria-label="モバイル固定メニュー">
+  <a class="tel" href="tel:0795852914">
+    <span class="ico">☎</span>
+    <span>お電話</span>
+  </a>
+  <a class="book" href="#stores">
+    <span class="ico">📅</span>
+    <span>ご予約</span>
+  </a>
+  <a class="shop" href="https://ichiba.libecity.com/seller/products" target="_blank" rel="noopener">
+    <span class="ico">🥩</span>
+    <span>通販</span>
+  </a>
+</nav>
+
+<!-- Brand Concept -->
+<section class="concept" id="concept">
+  <div class="concept-inner">
+    <div class="concept-image" aria-hidden="true"></div>
+    <div class="concept-text">
+      <div class="concept-label">BRAND CONCEPT</div>
+      <h2 class="concept-headline">
+        霜降りの<span class="ornament">❖</span><br>
+        その<span class="gold">先</span>の旨味<span class="gold">。</span>
+      </h2>
+      <div class="concept-body">
+        <p>「美味しい」を、勘や慣習だけで語らない。<br>私たちは、<strong>旨味成分グルタミン酸</strong>を一般牛の十数倍に。<br>体に優しい<strong>オレイン酸</strong>を、芳醇な<strong>バニリン</strong>を、すべて数値で証明します。</p>
+        <p>霜降りの華やかさの、その奥にある<strong>本当の旨味</strong>を。<br>丹波の自然と、五十年の経験と、独自肥育技術で。</p>
+      </div>
+      <div class="concept-pillars">
+        <div class="concept-pillar">
+          <div class="concept-pillar-num">01</div>
+          <div class="concept-pillar-text">
+            <strong>旨味の科学</strong>
+            <small>グルタミン酸十数倍／日本初の数値表示／特許 PAT.No3413169</small>
+          </div>
+        </div>
+        <div class="concept-pillar">
+          <div class="concept-pillar-num">02</div>
+          <div class="concept-pillar-text">
+            <strong>愛情と健康</strong>
+            <small>角突き防止器具／音楽を流す牛舎／丹波の名水／独自配合飼料</small>
+          </div>
+        </div>
+        <div class="concept-pillar">
+          <div class="concept-pillar-num">03</div>
+          <div class="concept-pillar-text">
+            <strong>安心・安全</strong>
+            <small>全頭BSE検査／トレーサビリティ／生産者の顔が見える</small>
+          </div>
+        </div>
+        <div class="concept-pillar">
+          <div class="concept-pillar-num">04</div>
+          <div class="concept-pillar-text">
+            <strong>食の6次産業化</strong>
+            <small>牧場 → 加工 → 精肉 → EC → レストランまで一貫経営</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Us (Shikishima style) -->
+<section class="aboutus" id="brand">
+  <div class="aboutus-grid">
+    <div class="aboutus-text">
+      <h2 class="aboutus-title">About Us</h2>
+      <p>神戸髙見牧場株式会社は、兵庫県丹波市市島町を拠点に、約1,200頭の黒毛和種を専門に飼育する繁殖から肥育まで一貫経営の牧場です。</p>
+      <p>市島町内に勅使・与戸・喜多の3ヶ所の牧場を構え、銘酒の郷として知られるこの地の澄みきった水、北北東に吹き抜ける風、そして昼夜の温度差が育む澄んだ空気のなかで、一頭一頭を丹精込めて育てています。</p>
+      <p>第6回全国和牛能力共進会において内閣総理大臣賞（全国優勝）を受賞。安心・安全でおいしい黒毛和牛を、自信を持ってお届けしています。</p>
+      <a href="#brand-story" class="aboutus-more">View more</a>
+    </div>
+    <div class="aboutus-map" aria-hidden="true">
+      <svg viewBox="0 0 360 520" xmlns="http://www.w3.org/2000/svg"
+           fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round">
+        <!-- Hokkaido (large diamond shape with southern bay) -->
+        <path d="M 218,30
+                 C 240,22 270,25 290,40
+                 C 308,52 318,68 322,88
+                 C 326,108 322,128 312,142
+                 L 296,138 L 280,148 L 268,140
+                 C 256,148 240,150 226,142
+                 C 210,132 200,116 198,96
+                 C 196,76 202,56 218,30 Z" />
+        <!-- Aomori / Tohoku tip (small) -->
+        <path d="M 268,162 L 282,168 L 274,180 L 264,174 Z" />
+
+        <!-- Honshu (long S-curve from NE to SW) -->
+        <path d="M 296,180
+                 C 304,180 308,190 305,205
+                 C 300,225 290,242 275,255
+                 C 260,265 244,272 228,275
+                 C 215,277 202,274 191,268
+                 C 178,260 169,250 160,240
+                 C 152,232 144,228 134,232
+                 C 122,238 110,250 96,260
+                 C 82,270 70,278 58,288
+                 C 48,296 42,304 50,312
+                 C 60,318 76,316 92,310
+                 C 108,304 124,298 140,295
+                 C 156,294 170,298 182,304
+                 C 198,308 215,304 232,298
+                 C 250,290 268,282 282,272
+                 C 296,260 305,245 308,225
+                 C 311,210 308,195 296,180 Z" />
+
+        <!-- Sado island -->
+        <circle cx="225" cy="208" r="6" />
+
+        <!-- Shikoku (small island south of Honshu's east end) -->
+        <path d="M 138,310
+                 C 152,306 168,308 178,316
+                 C 188,326 186,338 174,343
+                 C 158,346 142,344 132,335
+                 C 124,326 128,316 138,310 Z" />
+
+        <!-- Kyushu (large island south-west) -->
+        <path d="M 75,335
+                 C 92,328 110,330 122,344
+                 C 132,358 130,378 124,395
+                 C 116,413 102,422 86,420
+                 C 68,416 56,402 54,384
+                 C 52,366 58,348 75,335 Z" />
+
+        <!-- Okinawa dots (decorative) -->
+        <circle cx="20" cy="465" r="3" />
+        <circle cx="32" cy="478" r="2" />
+        <circle cx="44" cy="490" r="2" />
+      </svg>
+
+      <!-- Photos floating over map -->
+      <div class="aboutus-photo aboutus-photo-1">
+        <img src="https://takamibeef.com/wp/wp-content/uploads/2025/12/bokujyo-02.jpg" alt="髙見牧場の牛">
+      </div>
+      <div class="aboutus-photo aboutus-photo-2">
+        <img src="https://takamibeef.com/wp/wp-content/uploads/2025/11/top-anshokunosato-1024x927.jpg" alt="Meat &amp; Fresh TAKAMI">
+      </div>
+
+      <!-- Script labels -->
+      <span class="aboutus-script aboutus-script-1">Tamba</span>
+      <span class="aboutus-script aboutus-script-2">Kyoto</span>
+
+      <!-- Tamba farm pin & address -->
+      <span class="aboutus-pin aboutus-pin-tamba"></span>
+      <span class="aboutus-loc aboutus-loc-tamba">
+        神戸髙見牧場
+        <small>〒669-4332<br>兵庫県丹波市市島町勅使1037-4</small>
+      </span>
+
+      <!-- Kyoto store pins -->
+      <span class="aboutus-pin aboutus-pin-kyoto"></span>
+      <span class="aboutus-loc aboutus-loc-kyoto">
+        京都府 宇治エリア
+        <small>Meat &amp; Fresh TAKAMI／グルメリア但馬／京都生協5店舗</small>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- Full-bleed photo slider -->
+<section class="slider" id="slider" aria-label="髙見牧場の風景">
+  <div class="slider-track">
+    <div class="slide is-active">
+      <img src="images/slide-1.jpg"
+           onerror="this.onerror=null;this.src='https://takamibeef.com/wp/wp-content/uploads/2025/12/bokujyo-02.jpg';"
+           alt="神戸髙見牛の郷">
+      <div class="slide-caption">
+        <div class="num">01 / 04</div>
+        <div class="title">受け継がれし、神戸髙見牛の郷</div>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="images/slide-2.jpg"
+           onerror="this.onerror=null;this.src='https://takamibeef.co.jp/image/syonyuu_07.gif';"
+           alt="母牛と双子の子牛">
+      <div class="slide-caption">
+        <div class="num">02 / 04</div>
+        <div class="title">藁の上に、命が生まれる</div>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="images/slide-3.jpg"
+           onerror="this.onerror=null;this.src='https://takamibeef.co.jp/image/syonyuu_09.gif';"
+           alt="母から子へ、はじめての温もり">
+      <div class="slide-caption">
+        <div class="num">03 / 04</div>
+        <div class="title">母から子へ、はじめての温もり</div>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="images/slide-4.jpg"
+           onerror="this.onerror=null;this.src='https://takamibeef.com/wp/wp-content/uploads/2025/11/top-anshokunosato-1024x927.jpg';"
+           alt="プロセスセンター・安食の郷">
+      <div class="slide-caption">
+        <div class="num">04 / 04</div>
+        <div class="title">プロセスセンター・安食の郷</div>
+      </div>
+    </div>
+  </div>
+  <div class="slider-dots">
+    <button type="button" class="slider-dot is-active" data-slide="0" aria-label="スライド 1"></button>
+    <button type="button" class="slider-dot" data-slide="1" aria-label="スライド 2"></button>
+    <button type="button" class="slider-dot" data-slide="2" aria-label="スライド 3"></button>
+    <button type="button" class="slider-dot" data-slide="3" aria-label="スライド 4"></button>
+  </div>
+</section>
+
+<!-- Brand Story -->
+<section class="story" id="brand-story">
+  <div class="container story-container">
+    <div class="story-image">
+      <img src="images/story.jpg"
+           onerror="this.onerror=null;this.src='https://takamibeef.com/wp/wp-content/uploads/2025/11/ketto.webp';"
+           alt="母から子へ受け継がれる髙見牧場">
+    </div>
+    <div class="story-text">
+      <span class="section-label">OUR STORY</span>
+      <h2 class="story-title">父から、子へ。<br>受け継がれる、半世紀の想い。</h2>
+      <p>神戸髙見牧場の物語は、私の父・<strong>髙見進</strong>から始まりました。昭和初期の農家に生まれ、牛を飼い、その肥やしで米や野菜を育てる――そんな循環農業のなかで育った父は、昭和45年に京都府宇治市で精肉店を開業。そして<strong>昭和57年、丹波市市島町に牧場を開設</strong>しました。</p>
+      <p>「牛は、どうしてほしいと言ってくれない。だからこそ、自分たちの目で様子を見て、考えることが大切です。」――父が大切にしてきたこの言葉と、毎朝五時に牛舎を回る姿を、私は幼い頃から見てきました。一頭ずつに目を配り、変化を見逃さない。半世紀続けてきたその姿勢が、平成4年の<strong>内閣総理大臣賞</strong>へと結びついたのです。</p>
+      <p>2代目として家業を継いだ私は、その想いを胸に、勅使・与戸・喜多の3ヶ所の牧場で<strong>約1,200頭の黒毛和種</strong>を、繁殖から肥育まで一貫して育てています。銘酒の郷として知られる市島町の澄みきった水、北北東に吹き抜ける風、昼夜の温度差が生む凛とした空気。父が選び抜いたこの土地の恵みは、変わることなく牛たちを育み続けています。</p>
+      <p>人と牛と環境が、無理なく循環する。畜産廃棄物は「市島ユーキ」という有機堆肥となり、市島町を「有機の里」へと育てました。父が築いた礎の上に、これからも一頭一頭と真摯に向き合いながら、次の世代へとこの物語を紡いでいきます。</p>
+      <p class="story-sign">神戸髙見牧場 二代目 代表取締役　高見　純</p>
+    </div>
+  </div>
+</section>
+
+<!-- Movie - Founder's Legacy -->
+<section class="movie" id="movie">
+  <div class="container">
+    <div class="movie-badge"><span>A LEGACY IN MOTION</span></div>
+    <div class="movie-head">
+      <h2>先代が遺した、原点の映像。</h2>
+      <div class="section-en">In the Words of Our Founder, Susumu Takami.</div>
+    </div>
+
+    <p class="movie-quote">
+      牛は、どうしてほしい、こうしてほしいと言ってくれない。<br>
+      自分たちの目で様子を見て、色々考えることが大切です。
+      <span class="movie-quote-author">— 創業者　髙見　進</span>
+    </p>
+
+    <a class="movie-frame" id="movie-trigger"
+       href="https://www.youtube.com/watch?v=MrW8Ca0Ua_Q"
+       target="_blank" rel="noopener"
+       style="background-image:url('https://img.youtube.com/vi/MrW8Ca0Ua_Q/maxresdefault.jpg');"
+       aria-label="先代・髙見進が語る髙見牧場の原点 を YouTube で開く">
+      <span class="movie-play" aria-hidden="true"></span>
+    </a>
+    <p class="movie-caption">
+      <strong>先代・髙見　進が語る、髙見牧場の原点</strong>
+      昭和五十七年に牧場を開いた創業者が、自らの言葉で語る半世紀の歩み。<br>
+      丹波市市島町の風景とともに、髙見牧場の原点となった想いをご覧ください。
+      <span class="play-cta">&#9658; &nbsp; Watch on YouTube</span>
+    </p>
+  </div>
+</section>
+
+<!-- Awards -->
+<section class="awards" id="awards">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">AWARDS &amp; HONORS</span>
+      <h2 class="section-title">数々の栄誉に、<br>その品質は証された。</h2>
+    </div>
+    <!-- Hero: 内閣総理大臣賞 with trophy photo -->
+    <div class="awards-hero">
+      <figure class="awards-trophy">
+        <span class="awards-corner awards-corner-tl"></span>
+        <span class="awards-corner awards-corner-tr"></span>
+        <span class="awards-corner awards-corner-bl"></span>
+        <span class="awards-corner awards-corner-br"></span>
+        <img src="images/trophy.jpg"
+             onerror="this.onerror=null;this.src='https://takamibeef.com/wp/wp-content/uploads/2025/11/trophy.webp';"
+             alt="内閣総理大臣賞 トロフィー">
+      </figure>
+      <div class="awards-hero-text">
+        <span class="awards-hero-tag">THE HIGHEST HONOR</span>
+        <div class="awards-hero-year"><strong>平成4年</strong>1992</div>
+        <h3 class="awards-hero-title">
+          内閣総理大臣賞
+          <em>Prime Minister's Award</em>
+        </h3>
+        <div class="awards-hero-event">
+          第6回 全国和牛能力共進会 全国優勝
+          <span class="event-sub">THE 6TH NATIONAL JAPANESE BEEF CATTLE EXPO &nbsp;/&nbsp; GRAND CHAMPION</span>
+        </div>
+        <p class="awards-hero-desc">
+          五年に一度開催され「和牛のオリンピック」と呼ばれる、日本の畜産業界における最高峰の競技会。全国から集った頂点の和牛たちのなかから、神戸髙見牛は<strong style="color:#fff;">全国優勝</strong>を勝ち取り、日本国総理大臣の名のもとに、その品質を国家から認められました。
+        </p>
+        <div class="awards-hero-cert">
+          兵庫県但馬牛・神戸肉流通推進協議会 認定 / 神戸肉の証
+        </div>
+      </div>
+    </div>
+
+    <!-- Secondary Awards -->
+    <div class="awards-secondary">
+      <div class="award-item">
+        <div class="award-year">平成22年</div>
+        <div class="award-name">名誉賞（優勝）</div>
+        <div class="award-desc">第92回 兵庫県畜産共進会において優勝。県内最高位の栄誉。</div>
+      </div>
+      <div class="award-item">
+        <div class="award-year">令和元年</div>
+        <div class="award-name">後継者育成の実績</div>
+        <div class="award-desc">研修生が独立し、丹波市で30年ぶりとなる繁殖農家新規参入を実現。</div>
+      </div>
+      <div class="award-item">
+        <div class="award-year">特許取得</div>
+        <div class="award-name">PAT. No.3413169</div>
+        <div class="award-desc">日本で初めて、牛肉の美味しさを数値で表示することに成功した独自肥育方法。</div>
+      </div>
+    </div>
+    <div class="awards-media">
+      <span class="section-label" style="display:block; text-align:center; margin-bottom:30px;">MEDIA</span>
+      <div class="media-grid">
+        <button type="button" class="media-item"
+                data-img="https://takamibeef.co.jp/photo_01/yougyu.gif"
+                data-date="2018.11"
+                data-title="NHK「ようきゅう」">
+          <span class="media-zoom">VIEW +</span>
+          <div class="media-date">2018.11</div>
+          <div class="media-title">NHK「ようきゅう」</div>
+        </button>
+        <button type="button" class="media-item"
+                data-img="https://takamibeef.co.jp/image/jou_01.gif"
+                data-date="2018.03"
+                data-title="農業ジャーナル 掲載">
+          <span class="media-zoom">VIEW +</span>
+          <div class="media-date">2018.03</div>
+          <div class="media-title">農業ジャーナル 掲載</div>
+        </button>
+        <button type="button" class="media-item"
+                data-img="https://takamibeef.co.jp/photo_01/asa_01.gif"
+                data-date="2014.08"
+                data-title="TBS「ハイド・シンポジウム」">
+          <span class="media-zoom">VIEW +</span>
+          <div class="media-date">2014.08</div>
+          <div class="media-title">TBS「ハイド・シンポジウム」</div>
+        </button>
+        <button type="button" class="media-item"
+                data-img="https://takamibeef.co.jp/photo_01/tonari.gif"
+                data-date="2014.03"
+                data-title="「となりの人間国宝さん」">
+          <span class="media-zoom">VIEW +</span>
+          <div class="media-date">2014.03</div>
+          <div class="media-title">「となりの人間国宝さん」</div>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Three pillars -->
+<section class="pillars" id="pillars">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">OUR BUSINESS</span>
+      <h2 class="section-title">私たちの3つの事業</h2>
+    </div>
+    <div class="pillar-grid">
+      <!-- Featured: 初乳製品 -->
+      <button type="button" class="pillar pillar-featured" data-modal="modal-colostrum">
+        <div class="pillar-img" style="background-image:url('https://takamibeef.co.jp/image/syonyuu_05.gif');"></div>
+        <div>
+          <span class="pillar-featured-tag">FEATURED</span>
+          <div class="pillar-num">02 &nbsp;COLOSTRUM</div>
+          <h3>初乳製剤</h3>
+          <div class="pillar-featured-sub">— 親はなくとも仔は育つ®</div>
+          <p>生まれた子牛の命を救いたい。その想いから、約1,200頭を飼養する髙見牧場が独自開発した初乳製剤。給与した200頭以上の子牛で<strong>生存率100%</strong>を達成し、いま全国の生産者が選ぶ製品となりました。</p>
+          <p>母牛が出産後わずかな期間しか出さない、貴重な初乳（コロストラム）。50年の経験と科学が出会って生まれた、命をつなぐ一袋です。</p>
+          <span class="pillar-readmore">READ MORE +</span>
+        </div>
+      </button>
+      <!-- Row: 高見牛 + 3Dプロセスセンター -->
+      <div class="pillar-row">
+        <button type="button" class="pillar" data-modal="modal-takamibeef">
+          <div class="pillar-num">01 &nbsp;TAKAMI BEEF</div>
+          <div class="pillar-img" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/11/niku-cut.jpg');"></div>
+          <h3>神戸髙見牛</h3>
+          <p>丹波篠山の自然のなか、特許に基づく独自の肥育で育てる希少なる和牛。日本初、牛肉の美味しさの数値表示を実現しました。</p>
+          <span class="pillar-readmore">READ MORE +</span>
+        </button>
+        <button type="button" class="pillar" data-modal="modal-freezer">
+          <div class="pillar-num">03 &nbsp;PROCESS CENTER</div>
+          <div class="pillar-img" style="background-image:url('https://takamibeef.co.jp/image/process01.jpg');"></div>
+          <h3>3Dプロセスセンター</h3>
+          <p>独自の3D冷凍技術と徹底した衛生管理。新鮮なまま、全国のお客様へお届けする食肉加工拠点です。</p>
+          <span class="pillar-readmore">READ MORE +</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- News -->
+<section class="news" id="news">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">NEWS</span>
+      <h2 class="section-title">お知らせ</h2>
+    </div>
+    <div class="news-list">
+      <a href="#" class="news-item">
+        <div class="news-date">2026.05.01</div>
+        <div class="news-cat">お知らせ</div>
+        <div class="news-title">公式オンラインショップを開設しました</div>
+      </a>
+      <a href="#" class="news-item">
+        <div class="news-date">2026.04.20</div>
+        <div class="news-cat event">イベント</div>
+        <div class="news-title">丹波篠山 春の牧場開放デーを開催します</div>
+      </a>
+      <a href="#" class="news-item">
+        <div class="news-date">2026.04.05</div>
+        <div class="news-cat media">メディア</div>
+        <div class="news-title">TBSテレビ「夢の扉+」にて高見牛が紹介されました</div>
+      </a>
+      <a href="#" class="news-item">
+        <div class="news-date">2026.03.18</div>
+        <div class="news-cat">お知らせ</div>
+        <div class="news-title">春のギフト商品ラインナップを公開しました</div>
+      </a>
+      <a href="#" class="news-item">
+        <div class="news-date">2026.02.27</div>
+        <div class="news-cat">お知らせ</div>
+        <div class="news-title">3Dプロセスセンターの設備拡張のお知らせ</div>
+      </a>
+    </div>
+    <div class="news-more">
+      <a href="#">VIEW ALL</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA: 初乳製品のご相談 -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-label">FOR PRODUCERS</div>
+    <h2>子牛の命を、つなぎたい。</h2>
+    <p>「親はなくとも仔は育つ®」は、繁殖業務に取り組む全国の生産者の皆さまへ。<br>200頭以上の子牛で生存率100%を達成した、いのちを支える初乳製剤です。<br>製品に関するご相談・お見積もりは、お気軽にお問い合わせください。</p>
+    <a href="#contact" class="cta-btn">お問い合わせはこちら &nbsp;→</a>
+    <div class="cta-shop-note">
+      <span>神戸髙見牛のご購入は、リベシティ市場の公式ショップへ。</span>
+      <a href="https://ichiba.libecity.com/seller/products" target="_blank" rel="noopener">公式オンラインショップを見る &nbsp;→</a>
+    </div>
+  </div>
+</section>
+
+<!-- About Kobe Takami Beef (detailed) -->
+<section class="aboutbeef" id="aboutbeef">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">ABOUT KOBE TAKAMI BEEF</span>
+      <h2 class="section-title">神戸髙見牛とは</h2>
+    </div>
+
+    <div class="aboutbeef-lead">
+      <p class="aboutbeef-lead-text">
+        <strong>自分たちが心から納得できるものだけを、お客様へ。</strong><br>
+        その強い信念から、私たちは自社牧場での肥育にこだわっています。<br>
+        愛情込めて育てた良質なお肉を、鮮度そのままに、<br>安心・安全と共にお届けいたします。
+      </p>
+    </div>
+
+    <!-- The Difference -->
+    <div class="diff-block">
+      <div class="diff-head">
+        <span class="diff-label">THE DIFFERENCE</span>
+        <h3 class="diff-title">他の牛肉と、何が違うのか。</h3>
+      </div>
+
+      <div class="diff-graph">
+        <img src="https://takamibeef.com/wp/wp-content/uploads/2025/11/6506b77532319febfff66fcca6385278-1024x391.png" alt="神戸髙見牛の血統・位置付けランク">
+        <p class="diff-graph-caption">
+          神戸髙見牛は、<strong>但馬牛・神戸ビーフのすべての格付け範囲（A・B/1〜A・B/5）をカバー</strong>する、唯一無二のブランド和牛。
+          神戸ビーフ（A・B/2〜5）や但馬牛（A・B/1〜4）よりも幅広い格付けに対応しながら、最高峰の品質を実現しています。
+        </p>
+      </div>
+
+      <div class="diff-stats">
+        <div class="diff-stat">
+          <div class="diff-stat-num">×十数倍 <small>vs 一般牛</small></div>
+          <div class="diff-stat-label">グルタミン酸量</div>
+          <p class="diff-stat-vs">旨味成分の代表格。一般牛と比較して<br>圧倒的な数値を記録</p>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-num">A・B/1〜5 <small>全格付けカバー</small></div>
+          <div class="diff-stat-label">幅広い等級対応</div>
+          <p class="diff-stat-vs">神戸ビーフ：A・B/2〜5<br>但馬牛：A・B/1〜4</p>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-num">日本初 <small>PAT.No3413169</small></div>
+          <div class="diff-stat-label">美味しさを数値化</div>
+          <p class="diff-stat-vs">特許取得済の独自肥育法により<br>日本で初めて美味しさを数値表示</p>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-num">内閣総理大臣賞 <small>第6回 全国優勝</small></div>
+          <div class="diff-stat-label">日本最高峰の栄誉</div>
+          <p class="diff-stat-vs">和牛のオリンピック<br>「全国和牛能力共進会」全国優勝</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 01: 血統 -->
+    <div class="aboutbeef-row">
+      <div class="aboutbeef-row-img" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2026/01/e19cac9af1d02b50c700f3835a3f3bb5.png');"></div>
+      <div class="aboutbeef-row-text">
+        <div class="aboutbeef-row-num">01 / BLOODLINE</div>
+        <h3 class="aboutbeef-row-title">純血と、受け継がれる血統。<em>Lineage of Tajima</em></h3>
+        <p>牛の健康を第一に考える髙見牧場では、<strong>純血但馬牛</strong>（純但馬牛で格付けA・Bランクの4の6以上等）も、それ以外の黒毛和種の肉も、すべて「<strong>神戸髙見牛</strong>」の名で出荷しています。</p>
+        <p>髙見牧場の黒毛和種には、純血に<span class="highlight">50〜75％程度但馬の血を引く牛</span>を掛け合わせたものも多く、それでも純血の但馬牛となんら遜色ない味わいの肉に仕上げるのが、長年培ってきた牛匠の技。<strong>唯一無二のオリジナルブランド牛</strong>です。</p>
+      </div>
+    </div>
+
+    <!-- Row 02: 食感 -->
+    <div class="aboutbeef-row reverse">
+      <div class="aboutbeef-row-img" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/11/niku-cut.jpg');"></div>
+      <div class="aboutbeef-row-text">
+        <div class="aboutbeef-row-num">02 / TASTE</div>
+        <h3 class="aboutbeef-row-title">食べた瞬間に、他とは違うとわかる。<em>The Moment You Taste It</em></h3>
+        <p>厳選黒毛和牛のサシ（霜降り）はキメが細かく、赤身とのバランスが非常に良い。キメが細かいので<strong>舌の上で溶けるような柔らかな触感</strong>と、肉本来のジューシーな旨味と、芳醇さが口いっぱいに広がります。</p>
+        <p>美味しいお肉を食べて、至福の時間をご賞味ください。</p>
+      </div>
+    </div>
+
+    <!-- Row 03: 旨味数値 -->
+    <div class="aboutbeef-row">
+      <div class="aboutbeef-row-img contain" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/11/9908fb307710182e62508a537c7f4971.png');"></div>
+      <div class="aboutbeef-row-text">
+        <div class="aboutbeef-row-num">03 / UMAMI</div>
+        <h3 class="aboutbeef-row-title">日本初、美味しさを数値で表示。<em>Umami, Proven by Numbers</em></h3>
+        <p>独自に配合された当場開発の配合飼料「<strong>グルメビーフ</strong>」に加え、食品副産物３品で製造された粗飼料を供与する<strong>特許（PAT.No3413169）取得済の肥育法</strong>を実践。<strong>日本で初めて、牛肉の美味しさの数値表示に成功</strong>しました。</p>
+        <p>当牧場の和牛は、旨味成分の代表格である<span class="highlight">グルタミン酸が、一般牛と比較して十数倍高く</span>、その他の遊離アミノ酸の含有量も高い数値を示します。風味成分の<strong>バニリン</strong>、健康に良い<strong>オレイン酸</strong>の数値も非常に高い、上質の牛肉です。</p>
+      </div>
+    </div>
+
+    <!-- Row 04: 飼料 -->
+    <div class="aboutbeef-row reverse">
+      <div class="aboutbeef-row-img" style="background-image:url('https://takamibeef.co.jp/image/secret03.jpg');"></div>
+      <div class="aboutbeef-row-text">
+        <div class="aboutbeef-row-num">04 / FEED</div>
+        <h3 class="aboutbeef-row-title">独自配合飼料 「グルメビーフ」<em>Original Blend "Gourmet Beef"</em></h3>
+        <p>髙見牧場独自の配合飼料は、<strong>食品副産物3品</strong>を中心に組み立てられています。</p>
+        <p style="margin-top: 18px;"><strong>● パイナップルの搾りかす</strong>　肉を柔らかくし、旨味成分の含有量を増加させます。</p>
+        <p><strong>● さとうきび粕</strong>　牛肉の風味を豊かにします。</p>
+        <p><strong>● トレハロース</strong>　加工後の牛肉のみずみずしさを保ちます。</p>
+        <p style="margin-top: 18px;">これらは<strong>すべて人間向けの食品工場の副産物</strong>。「人の口に入るものと同じ品質管理」を、牛の飼料にも徹底しています。</p>
+      </div>
+    </div>
+
+    <!-- Row 05: 水 -->
+    <div class="aboutbeef-row">
+      <div class="aboutbeef-row-img" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/11/water.webp');"></div>
+      <div class="aboutbeef-row-text">
+        <div class="aboutbeef-row-num">05 / WATER</div>
+        <h3 class="aboutbeef-row-title">水が違う ― 丹波の名水。<em>Pristine Waters of Tamba</em></h3>
+        <p>数々の銘酒の故郷としても知られる<strong>丹波市島は、水が良いことでも知られています</strong>。昼夜の温度差の激しい凛とした空気の中で、牛たちは育ちます。</p>
+        <p>動物の体は、その多くが水分から構成されています。だからこそ、飲水はとても重要。澄みきった丹波の名水が、健やかな牛と上質な肉質を育てる礎となっています。</p>
+      </div>
+    </div>
+
+    <!-- Row 06: 肥育法 -->
+    <div class="aboutbeef-row reverse">
+      <div class="aboutbeef-row-img" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/11/ketto.webp');"></div>
+      <div class="aboutbeef-row-text">
+        <div class="aboutbeef-row-num">06 / RAISING</div>
+        <h3 class="aboutbeef-row-title">独自の肥育法。<em>The Master Breeder's Way</em></h3>
+        <p>自家生産牛であれば<strong>3年弱</strong>、9ヶ月齢程度の子牛をセリで購入した場合は<strong>2年強</strong>。丹精込めて肥育した但馬牛並びに但馬系の黒毛和牛です。</p>
+        <p>牛にストレスを与えないよう、牛舎には音楽を流し、牛同士のケンカを無くしてどの牛も均等に決められた分量を食べられるよう、<span class="highlight">「角突き防止器具」を独自に開発</span>。試行錯誤しながら、健康でストレスを与えない環境で肥育しています。</p>
+      </div>
+    </div>
+
+    <!-- Row 07: 安全 -->
+    <div class="aboutbeef-row">
+      <div class="aboutbeef-row-img contain" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/11/BSE.png');"></div>
+      <div class="aboutbeef-row-text">
+        <div class="aboutbeef-row-num">07 / SAFETY</div>
+        <h3 class="aboutbeef-row-title">安心・安全の品質管理。<em>Safety First</em></h3>
+        <p>独自のサンプリングに基づき、<strong>BSE検査を継続的に実施</strong>しています。食の安全が叫ばれる今、生産者の顔が見える神戸髙見牧場が、安心をお届けいたします。</p>
+        <p>ご提供する商品は<strong>トレーサビリティにて管理</strong>しておりますので、安全・安心の商品を、自信を持ってお届けします。</p>
+      </div>
+    </div>
+
+    <div class="aboutbeef-cta">
+      <a href="#aboutbeef" onclick="document.querySelector('.pillar[data-modal=&quot;modal-takamibeef&quot;]').click(); return false;">View All Details &nbsp;→</a>
+    </div>
+  </div>
+</section>
+
+<!-- Stores -->
+<section class="stores" id="stores">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">OUR STORES</span>
+      <h2 class="section-title">店舗のご案内</h2>
+    </div>
+    <p class="stores-intro">
+      自社牧場で育てた神戸髙見牛を、直営の精肉店・レストラン・直売所、そして京都生協 (COOP) 内のミートショップを通じて、関西を中心にお届けしています。
+    </p>
+
+    <!-- Direct Store -->
+    <div class="stores-cat">
+      <div class="stores-cat-head">
+        <span class="stores-cat-en">Flagship Store</span>
+        <span class="stores-cat-jp">直営本店・精肉店</span>
+      </div>
+      <div class="stores-grid stores-grid-1">
+        <button type="button" class="store-item featured store-as-button" data-modal="modal-mftakami">
+          <div class="store-img" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/11/top-mft-1024x927.jpg');"></div>
+          <div class="store-body">
+            <span class="store-tag">FLAGSHIP &nbsp;/&nbsp; SINCE 1978</span>
+            <h3 class="store-name">Meat &amp; Fresh TAKAMI（髙見牧場直売本店）</h3>
+            <p class="store-desc">自社牧場で育った自慢の神戸髙見牛をはじめ、と畜場に足を運び熟練の目利きで黒毛和牛を１頭買い。市場に出回らない希少部位と高品質なお肉を、地元産の新鮮野菜・揚げたて惣菜・40種以上の精肉店弁当とともにご提供しています。<strong style="color:var(--color-accent);">毎月29日は「肉の日」</strong>。</p>
+            <p class="store-info">
+              <strong>住所</strong>〒611-0031 京都府宇治市広野町桐生谷28-5 グルメリア1階（キリン堂宇治広野店横）<br>
+              <strong>電話</strong>0774-45-4129<br>
+              <strong>営業</strong>10:00〜19:00 ／ 定休日：毎週水曜日<br>
+              <strong>駐車場</strong>20台 ／ <strong>支払</strong>クレジットカード・PayPay対応 ／ Uber Eats・出前館配達対応
+            </p>
+            <span class="store-link">READ MORE +</span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Restaurants -->
+    <div class="stores-cat">
+      <div class="stores-cat-head">
+        <span class="stores-cat-en">Restaurants</span>
+        <span class="stores-cat-jp">レストラン</span>
+        <span class="stores-cat-num">02 LOCATIONS</span>
+      </div>
+      <div class="stores-grid stores-grid-2">
+        <a class="store-item" href="https://takamibeef.com/g-uji/" target="_blank" rel="noopener">
+          <div class="store-img" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/11/top-uji-1024x927.jpg');"></div>
+          <div class="store-body">
+            <span class="store-tag">YAKINIKU &amp; NABE</span>
+            <h3 class="store-name">グルメリア但馬 宇治店</h3>
+            <p class="store-desc">肉料理・焼肉・鍋・ランチ・焼肉食べ放題。神戸髙見牛を多彩なスタイルでお楽しみください。</p>
+            <span class="store-link">View Detail →</span>
+          </div>
+        </a>
+        <a class="store-item" href="https://takamibeef.com/g-ichijima/" target="_blank" rel="noopener">
+          <div class="store-img" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/11/top-ichijima-1024x927.jpg');"></div>
+          <div class="store-body">
+            <span class="store-tag">YAKINIKU &amp; NABE</span>
+            <h3 class="store-name">グルメリア但馬 市島店</h3>
+            <p class="store-desc">牧場のすぐそば、丹波市島で味わう本場の神戸髙見牛。肉料理・焼肉・鍋・ランチをご用意。</p>
+            <span class="store-link">View Detail →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Direct Sales -->
+    <div class="stores-cat">
+      <div class="stores-cat-head">
+        <span class="stores-cat-en">Farm Shop</span>
+        <span class="stores-cat-jp">髙見牧場 直売所</span>
+      </div>
+      <div class="stores-grid stores-grid-1">
+        <a class="store-item featured" href="https://takamibeef.com/takami-bokujyou/" target="_blank" rel="noopener">
+          <div class="store-img" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/11/top-anshokunosato-1024x927.jpg');"></div>
+          <div class="store-body">
+            <span class="store-tag">DIRECT FROM THE FARM</span>
+            <h3 class="store-name">髙見牧場直売所　安食の郷</h3>
+            <p class="store-desc">牧場・プロセスセンターに隣接する直売所。生産から加工まで自社で一貫管理した神戸髙見牛を、産地ならではの鮮度と価格でお届けします。</p>
+            <p class="store-info">
+              <strong>所在</strong>兵庫県丹波市市島町（牧場・プロセスセンター隣接）
+            </p>
+            <span class="store-link">View Detail →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- COOP Stores -->
+    <div class="stores-cat">
+      <div class="stores-cat-head">
+        <span class="stores-cat-en">Meat Shops</span>
+        <span class="stores-cat-jp">髙見牧場ミートショップ</span>
+        <span class="stores-cat-num">05 LOCATIONS / 京都生協</span>
+      </div>
+      <div class="stores-grid stores-grid-5">
+        <article class="store-item store-mini">
+          <div class="store-img" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/12/top-housono-1024x927.jpg');"></div>
+          <div class="store-body">
+            <h3 class="store-name">髙見牧場 祝園店</h3>
+            <p class="store-desc">精肉・惣菜・加工品</p>
+          </div>
+        </article>
+        <article class="store-item store-mini">
+          <div class="store-img" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/11/top-coop-momoyama-1024x927.jpg');"></div>
+          <div class="store-body">
+            <h3 class="store-name">髙見牧場 桃山店</h3>
+            <p class="store-desc">精肉・加工品</p>
+          </div>
+        </article>
+        <article class="store-item store-mini">
+          <div class="store-img" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/12/top-coop-rakusai-1024x927.jpg');"></div>
+          <div class="store-body">
+            <h3 class="store-name">髙見牧場 洛西店</h3>
+            <p class="store-desc">精肉・惣菜・加工品</p>
+          </div>
+        </article>
+        <article class="store-item store-mini">
+          <div class="store-img" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/12/top-coop-jyouyou-1024x927.jpg');"></div>
+          <div class="store-body">
+            <h3 class="store-name">髙見牧場 城陽店</h3>
+            <p class="store-desc">精肉・加工品</p>
+          </div>
+        </article>
+        <article class="store-item store-mini">
+          <div class="store-img" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/12/top-coom-kyotanabe-1024x927.jpg');"></div>
+          <div class="store-body">
+            <h3 class="store-name">髙見牧場 京田辺店</h3>
+            <p class="store-desc">精肉・加工品</p>
+          </div>
+        </article>
+        <p class="stores-coop-note">※ 京都生活協同組合（コープ）店舗内にて営業しております</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gift Special -->
+<section class="gift" id="gift">
+  <div class="container">
+    <div class="gift-head">
+      <span class="gift-label">GIFT &amp; CELEBRATION</span>
+      <h2 class="gift-title">大切な方へ、<br>本物の和牛を贈る。</h2>
+      <p class="gift-sub">
+        お中元・お歳暮・誕生日・記念日に。<br>
+        内閣総理大臣賞の品質を、化粧箱・のし対応で全国へお届けします。
+      </p>
+    </div>
+
+    <div class="gift-grid">
+      <a class="gift-card" href="https://ichiba.libecity.com/seller/products" target="_blank" rel="noopener">
+        <div class="gift-card-img">
+          <span class="gift-card-tag">SUMMER</span>
+          <div class="ph-zoom" style="background-image:url('https://baseec-img-mng.akamaized.net/images/item/origin/c2feaf11a59a2d342f7c8602e5ede156.jpg?imformat=generic&q=90&im=Resize,width=900,type=normal');"></div>
+        </div>
+        <div class="gift-card-body">
+          <h3>お中元</h3>
+          <p>夏の御礼に、シャトーブリアンや特撰サーロインの詰合せ。</p>
+          <span class="gift-link">SHOP NOW →</span>
+        </div>
+      </a>
+      <a class="gift-card" href="https://ichiba.libecity.com/seller/products" target="_blank" rel="noopener">
+        <div class="gift-card-img">
+          <span class="gift-card-tag">WINTER</span>
+          <div class="ph-zoom" style="background-image:url('https://baseec-img-mng.akamaized.net/images/item/origin/03c3cabf8bff36a226a1ce4cdfd5b064.jpg?imformat=generic&q=90&im=Resize,width=900,type=normal');"></div>
+        </div>
+        <div class="gift-card-body">
+          <h3>お歳暮</h3>
+          <p>一年のご挨拶に、希少部位ステーキや極上すき焼き肉を。</p>
+          <span class="gift-link">SHOP NOW →</span>
+        </div>
+      </a>
+      <a class="gift-card" href="https://ichiba.libecity.com/seller/products" target="_blank" rel="noopener">
+        <div class="gift-card-img">
+          <span class="gift-card-tag">ANNIVERSARY</span>
+          <div class="ph-zoom" style="background-image:url('https://baseec-img-mng.akamaized.net/images/item/origin/789182cfa968b1d3ebb0100049e4a17e.jpg?imformat=generic&q=90&im=Resize,width=900,type=normal');"></div>
+        </div>
+        <div class="gift-card-body">
+          <h3>誕生日・記念日</h3>
+          <p>特別な日に、希少部位を集めたステーキセットを。</p>
+          <span class="gift-link">SHOP NOW →</span>
+        </div>
+      </a>
+      <a class="gift-card" href="https://ichiba.libecity.com/seller/products" target="_blank" rel="noopener">
+        <div class="gift-card-img">
+          <span class="gift-card-tag">PREMIUM</span>
+          <div class="ph-zoom" style="background-image:url('https://baseec-img-mng.akamaized.net/images/item/origin/6b21600c5311818070076c9827ceb533.jpg?imformat=generic&q=90&im=Resize,width=900,type=normal');"></div>
+        </div>
+        <div class="gift-card-body">
+          <h3>受賞牛 限定</h3>
+          <p>内閣総理大臣賞受賞の血統。最高峰の贈り物に。</p>
+          <span class="gift-link">SHOP NOW →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Season Calendar -->
+<section class="season" id="season">
+  <div class="container">
+    <div class="season-head">
+      <span class="season-label">SEASONAL HIGHLIGHTS</span>
+      <h2 class="season-title">季節を、味わう。</h2>
+      <p class="season-sub">
+        春夏秋冬。それぞれの季節に、それぞれの食卓を。<br>
+        髙見牧場が贈る、四季の和牛物語。
+      </p>
+    </div>
+
+    <div class="season-grid">
+      <article class="season-card">
+        <div class="season-icon">🔥</div>
+        <h3>BBQ</h3>
+        <div class="month">MAY — SEP</div>
+        <p>夏の青空の下で、希少部位の盛合せを贅沢に。家族・仲間と囲む特別な時間に。</p>
+      </article>
+      <article class="season-card">
+        <div class="season-icon">🍲</div>
+        <h3>すき焼き</h3>
+        <div class="month">OCT — FEB</div>
+        <p>霜降りロース・赤身のスライスを、関西風で。冬のごちそうの定番。</p>
+      </article>
+      <article class="season-card">
+        <div class="season-icon">🥢</div>
+        <h3>しゃぶしゃぶ・鍋</h3>
+        <div class="month">NOV — MAR</div>
+        <p>赤身スライスの軽やかさと、丹波の名水仕立てだしの調和。寒い夜に。</p>
+      </article>
+      <article class="season-card">
+        <div class="season-icon">🎍</div>
+        <h3>恵方巻・節分</h3>
+        <div class="month">FEBRUARY</div>
+        <p>立春の前日に、髙見牛で巻く特別な恵方巻。直営店限定で予約承り中。</p>
+      </article>
+      <article class="season-card">
+        <div class="season-icon">🥩</div>
+        <h3>ステーキ</h3>
+        <div class="month">ALL YEAR</div>
+        <p>サーロイン・ヒレ・シャトーブリアン。ハレの日のメインディッシュに。</p>
+      </article>
+    </div>
+
+    <div class="season-niku-day">
+      <h4>毎月<span class="gold"> 29 </span>日は「肉の日」<span class="gold">.</span></h4>
+      <p>直営店ではこの日、特別価格でのご提供と限定メニューをご用意しています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Instagram Feed -->
+<section class="instafeed" id="instafeed">
+  <div class="container">
+    <div class="instafeed-head">
+      <div class="instafeed-label">SEASONAL &amp; LATEST</div>
+      <h2 class="instafeed-title">季節限定・最新商品</h2>
+      <p class="instafeed-tagline">
+        Instagramで最新情報を更新中。<br>
+        <a href="https://www.instagram.com/anshokunosato/" target="_blank" rel="noopener">@anshokunosato</a> &nbsp;／&nbsp; 髙見牧場直売所 安食の郷
+      </p>
+    </div>
+
+    <!-- ★ AUTO-UPDATE: 将来的に Behold.so や SnapWidget の埋め込みコードに差し替え可能 -->
+    <!-- 現状はリンクカード9枚（クリックで Instagram プロフィールへ） -->
+    <div class="instafeed-grid" id="instafeed-grid">
+      <a class="insta-item" href="https://www.instagram.com/anshokunosato/" target="_blank" rel="noopener" aria-label="Instagram投稿を見る">
+        <img loading="lazy" src="https://baseec-img-mng.akamaized.net/images/item/origin/03c3cabf8bff36a226a1ce4cdfd5b064.jpg?imformat=generic&q=90&im=Resize,width=800,type=normal" alt="特撰サーロイン">
+        <span class="insta-caption">特撰サーロイン</span>
+      </a>
+      <a class="insta-item" href="https://www.instagram.com/anshokunosato/" target="_blank" rel="noopener" aria-label="Instagram投稿を見る">
+        <img loading="lazy" src="https://baseec-img-mng.akamaized.net/images/item/origin/c2feaf11a59a2d342f7c8602e5ede156.jpg?imformat=generic&q=90&im=Resize,width=800,type=normal" alt="シャトーブリアン">
+        <span class="insta-caption">特撰シャトーブリアン</span>
+      </a>
+      <a class="insta-item" href="https://www.instagram.com/anshokunosato/" target="_blank" rel="noopener" aria-label="Instagram投稿を見る">
+        <img loading="lazy" src="https://baseec-img-mng.akamaized.net/images/item/origin/789182cfa968b1d3ebb0100049e4a17e.jpg?imformat=generic&q=90&im=Resize,width=800,type=normal" alt="希少部位ステーキセット">
+        <span class="insta-caption">希少部位ステーキセット</span>
+      </a>
+      <a class="insta-item" href="https://www.instagram.com/anshokunosato/" target="_blank" rel="noopener" aria-label="Instagram投稿を見る">
+        <img loading="lazy" src="https://baseec-img-mng.akamaized.net/images/item/origin/6781fa01bbbb0731ffe98e582af5a02d.jpg?imformat=generic&q=90&im=Resize,width=800,type=normal" alt="霜降りカルビ焼肉用">
+        <span class="insta-caption">特撰 霜降りカルビ</span>
+      </a>
+      <a class="insta-item" href="https://www.instagram.com/anshokunosato/" target="_blank" rel="noopener" aria-label="Instagram投稿を見る">
+        <img loading="lazy" src="https://baseec-img-mng.akamaized.net/images/item/origin/96b5eb9558e20c8898deda0894663e34.jpg?imformat=generic&q=90&im=Resize,width=800,type=normal" alt="極上焼肉ミックス">
+        <span class="insta-caption">極上焼肉ミックス</span>
+      </a>
+      <a class="insta-item" href="https://www.instagram.com/anshokunosato/" target="_blank" rel="noopener" aria-label="Instagram投稿を見る">
+        <img loading="lazy" src="https://baseec-img-mng.akamaized.net/images/item/origin/6aa500abc623f632386d6c99476f37db.jpg?imformat=generic&q=90&im=Resize,width=800,type=normal" alt="ローススライス すき焼き">
+        <span class="insta-caption">特撰 すき焼き用ロース</span>
+      </a>
+      <a class="insta-item" href="https://www.instagram.com/anshokunosato/" target="_blank" rel="noopener" aria-label="Instagram投稿を見る">
+        <img loading="lazy" src="https://baseec-img-mng.akamaized.net/images/item/origin/a12dacd91b7b404a1b4a141aeabf0ad2.jpg?imformat=generic&q=90&im=Resize,width=800,type=normal" alt="特撰焼肉用">
+        <span class="insta-caption">特撰 焼肉用</span>
+      </a>
+      <a class="insta-item" href="https://www.instagram.com/anshokunosato/" target="_blank" rel="noopener" aria-label="Instagram投稿を見る">
+        <img loading="lazy" src="https://baseec-img-mng.akamaized.net/images/item/origin/320583458910b701e1523fcff854e588.jpg?imformat=generic&q=90&im=Resize,width=800,type=normal" alt="赤身スライス しゃぶしゃぶ">
+        <span class="insta-caption">特撰 赤身スライス</span>
+      </a>
+      <a class="insta-item" href="https://www.instagram.com/anshokunosato/" target="_blank" rel="noopener" aria-label="Instagram投稿を見る">
+        <img loading="lazy" src="https://baseec-img-mng.akamaized.net/images/item/origin/57f1f60f6a10dc9e365bdd1b24882f22.jpg?imformat=generic&q=90&im=Resize,width=800,type=normal" alt="切落し肉">
+        <span class="insta-caption">切落し肉</span>
+      </a>
+      <a class="insta-item" href="https://www.instagram.com/anshokunosato/" target="_blank" rel="noopener" aria-label="Instagram投稿を見る">
+        <img loading="lazy" src="https://baseec-img-mng.akamaized.net/images/item/origin/6b21600c5311818070076c9827ceb533.jpg?imformat=generic&q=90&im=Resize,width=800,type=normal" alt="特撰サーロイン5枚">
+        <span class="insta-caption">特撰 サーロイン5枚</span>
+      </a>
+    </div>
+
+    <div class="instafeed-cta">
+      <a href="https://www.instagram.com/anshokunosato/" target="_blank" rel="noopener">
+        Instagramでフォローする
+        <span class="ig-handle">@anshokunosato</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Company Profile -->
+<section class="company" id="company">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">COMPANY PROFILE</span>
+      <h2 class="section-title">会社概要</h2>
+    </div>
+    <div class="company-grid">
+      <div class="company-card">
+        <span class="company-card-no">01</span>
+        <h3>神戸髙見牛牧場 株式会社</h3>
+        <div class="company-jurisdiction">Kobe Takami Beef Farm Co., Ltd. &nbsp;/&nbsp; Production</div>
+        <table class="company-table">
+          <tr><th>所在地</th><td>〒669-4332 兵庫県丹波市市島町勅使1037-4</td></tr>
+          <tr><th>設立</th><td>2016年（平成28年）7月</td></tr>
+          <tr><th>代表者</th><td>代表取締役　高見　純（二代目）</td></tr>
+          <tr><th>事業内容</th><td>黒毛和牛の繁殖・肥育・販売・飲食提供までの一貫経営</td></tr>
+          <tr><th>頭数</th><td>約1,200頭（黒毛和種・繁殖牛270頭）</td></tr>
+          <tr><th>所在牧場</th><td>勅使牧場・与戸牧場・喜多牧場（丹波市市島町内 3ヶ所）</td></tr>
+          <tr><th>HP</th><td><a href="https://takamibeef.co.jp/" target="_blank" rel="noopener">takamibeef.co.jp</a></td></tr>
+        </table>
+      </div>
+      <div class="company-card">
+        <span class="company-card-no">02</span>
+        <h3>株式会社 ジィーシーエム</h3>
+        <div class="company-jurisdiction">G.C.M Co., Ltd. &nbsp;/&nbsp; Distribution &amp; Retail</div>
+        <table class="company-table">
+          <tr><th>所在地</th><td>〒611-0031 京都府宇治市広野町桐生谷28-5</td></tr>
+          <tr><th>設立</th><td>1978年（昭和53年）3月</td></tr>
+          <tr><th>事業内容</th><td>食肉小売販売（直営店・卸・通販）／ レストラン運営（グルメリア但馬）／ プロセスセンター運営</td></tr>
+          <tr><th>電話</th><td>TEL: 0774-44-9029 ／ フリーダイヤル: 0120-40-4129</td></tr>
+          <tr><th>店舗</th><td>Meat &amp; Fresh TAKAMI 本店、グルメリア但馬 宇治店・市島店、京都生協ミートショップ5店舗ほか</td></tr>
+          <tr><th>HP</th><td><a href="https://takamibeef.com/" target="_blank" rel="noopener">takamibeef.com</a></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <img src="images/logo.png"
+               onerror="this.onerror=null;this.src='https://takamibeef.com/wp/wp-content/uploads/2025/11/load-logo.png';"
+               alt="KOBE Takami Beef">
+        </div>
+        <div class="footer-info">
+          〒669-2xxx<br>
+          兵庫県丹波篠山市<br>
+          TEL: 0795-85-2914
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>ABOUT</h4>
+        <ul>
+          <li><a href="#">会社概要</a></li>
+          <li><a href="#">企業理念</a></li>
+          <li><a href="#">沿革</a></li>
+          <li><a href="#">採用情報</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>BUSINESS</h4>
+        <ul>
+          <li><a href="#">高見牛</a></li>
+          <li><a href="#">初乳製品</a></li>
+          <li><a href="#">プロセスセンター</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT</h4>
+        <ul>
+          <li><a href="#">お問い合わせ</a></li>
+          <li><a href="https://ichiba.libecity.com/seller/products" target="_blank" rel="noopener">オンラインショップ</a></li>
+          <li><a href="https://takamibeef.com/" target="_blank" rel="noopener">系列店</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © TAKAMI BEEF CO., LTD. ALL RIGHTS RESERVED.
+    </div>
+  </div>
+</footer>
+
+<!-- ====== Modals ====== -->
+
+<!-- Modal: 高見牛 -->
+<div class="modal-backdrop" id="modal-takamibeef" role="dialog" aria-modal="true" aria-labelledby="ttl-takamibeef">
+  <div class="modal">
+    <button type="button" class="modal-close" aria-label="閉じる">×</button>
+    <div class="modal-hero" style="background-image:url('https://takamibeef.co.jp/image/secret04.jpg');">
+      <div class="modal-hero-text">
+        <div class="modal-label">OUR BUSINESS &nbsp;/&nbsp; 01</div>
+        <h2 class="modal-title" id="ttl-takamibeef">神戸高見牛</h2>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-lead">
+        自分たちが心から納得できるものだけを、お客様へ。<br>
+        その強い信念から、私たちは自社牧場での肥育にこだわっています。<br>
+        愛情込めて育てた良質なお肉を、鮮度そのままに、安心・安全と共にお届けいたします。
+      </p>
+
+      <h3>神戸髙見牛とは</h3>
+      <p>牛の健康を第一に考える髙見牧場では、<strong>純血但馬牛</strong>（純但馬牛で格付けA・Bランクの4の6以上等）も、それ以外の黒毛和種の肉も、すべて「<strong>神戸髙見牛</strong>」の名で出荷しています。</p>
+      <p>髙見牧場の黒毛和種には、純血に50〜75％程度但馬の血を引く牛を掛け合わせたものも多く、それでも純血の但馬牛となんら遜色ない味わいの肉に仕上げるのが牛匠の技。長年培ってきた肥育法により実現した、<strong>唯一無二のオリジナルブランド牛</strong>です。</p>
+
+      <h3>食べた瞬間に、他とは違うとわかる。</h3>
+      <p>厳選黒毛和牛のサシ（霜降り）はキメが細かく、赤身とのバランスが非常に良い。キメが細かいので舌の上で溶けるような柔らかな触感と、肉本来のジューシーな旨味と、芳醇さが口いっぱいに広がります。<strong>美味しいお肉を食べて至福の時間を</strong>ご賞味ください。</p>
+
+      <h3>こだわり・旨さの証 — 受賞歴</h3>
+      <p>５年に一度開催され、和牛界のオリンピックと言われる<strong>第６回全国和牛能力共進会に兵庫県代表として出品した神戸髙見牛牧場産但馬牛が、内閣総理大臣賞（全国優勝）</strong>に輝きました。</p>
+      <ul>
+        <li>全国和牛能力共進会 優勝（内閣総理大臣賞）</li>
+        <li>兵庫県和牛共進会 最優秀賞</li>
+        <li>神戸肉枝肉共励会 最優秀賞</li>
+        <li>近畿東海和牛共進会 優秀賞</li>
+        <li>日本食肉市場卸売協会 最優秀賞</li>
+        <li>兵庫県知事賞</li>
+      </ul>
+
+      <h3>飼料から肥育法がちがう ― 日本初・美味しさを数値で表示</h3>
+      <p>但馬系黒毛和牛や県外産黒毛和牛を、独自に配合された当場開発の配合飼料「<strong>グルメビーフ</strong>」に加え、食品副産物３品で製造された粗飼料を供与する<strong>特許（PAT.No3413169）取得済の肥育法</strong>を実践。<strong>日本で初めて、牛肉の美味しさの数値表示に成功</strong>しました。</p>
+
+      <h3>旨み成分・風味が違う</h3>
+      <p>特許に基づく飼料と、髙見牧場独自の指定配合飼料（グルメビーフ）を与えられた当牧場の和牛は、旨味成分の代表格である<strong>グルタミン酸が、一般牛と比較して十数倍高く</strong>、その他の遊離アミノ酸の含有量も高い数値を示します。</p>
+      <p>また、風味成分である<strong>バニリン</strong>や、体に良いとされている<strong>オレイン酸</strong>の数値も高く、旨さと風味と健康にこだわった、上質の牛肉であることをお約束いたします。</p>
+
+      <h3>独自配合飼料「グルメビーフ」の3つの食品副産物</h3>
+      <ul>
+        <li><strong>パイナップルの搾りかす</strong>：肉を柔らかくし、旨味成分含有量を増加</li>
+        <li><strong>さとうきび粕</strong>：牛肉の風味を良くする</li>
+        <li><strong>トレハロース</strong>：加工後の牛肉のみずみずしさを保つ</li>
+      </ul>
+
+      <h3>水が違う（丹波の名水）</h3>
+      <p>数々の銘酒の故郷としても知られる<strong>丹波市島は水が良いことでも知られています</strong>。昼夜の温度差の激しい凛とした空気の中で育ちます。動物の体は多くが水分から構成されておりますので、飲水はとても重要です。</p>
+
+      <div class="modal-images">
+        <figure>
+          <img src="https://takamibeef.co.jp/image/secret01.png" alt="グルタミン酸量">
+          <figcaption>グルタミン酸量の比較データ</figcaption>
+        </figure>
+        <figure>
+          <img src="https://takamibeef.co.jp/image/secret02.png" alt="健康に良い脂質">
+          <figcaption>健康に良い脂質（オレイン酸）</figcaption>
+        </figure>
+        <figure>
+          <img src="https://takamibeef.co.jp/image/secret03.jpg" alt="独自配合飼料">
+          <figcaption>独自配合飼料「グルメビーフ」</figcaption>
+        </figure>
+        <figure>
+          <img src="https://takamibeef.co.jp/image/secret05.jpg" alt="丹波の名水">
+          <figcaption>丹波の名水で育つ</figcaption>
+        </figure>
+      </div>
+
+      <h3>独自の肥育法</h3>
+      <p>自家生産牛であれば<strong>3年弱</strong>、9ヶ月齢程度の子牛をセリで購入した場合は<strong>2年強</strong>。丹精込めて肥育した但馬牛並びに但馬系の黒毛和牛です。牛にストレスを与えないような環境を造り、牛同士のケンカを無くしてどの牛も均等に決められた分量を食べられるよう、<strong>「角突き防止器具」</strong>を独自に開発。試行錯誤しながら健康でストレスを与えない環境で肥育しています。</p>
+
+      <h3>健康に良い脂質</h3>
+      <p>動脈硬化・高血圧・心疾患などの生活習慣病を予防・改善する<strong>オレイン酸値がとても高い和牛</strong>です。オレイン酸はオリーブオイルの主要成分としても知られており、脂身を食べても動脈硬化のリスクを心配することなく、むしろリスク低下に働きます。</p>
+
+      <h3>安心・安全</h3>
+      <p>独自のサンプリングに基づき、<strong>BSE検査を継続的に実施</strong>しています。食の安全が叫ばれる今、生産者の顔が見える神戸髙見牧場が、安心をお届けいたします。ご提供する商品は<strong>トレーサビリティにて管理</strong>しておりますので、安全・安心の商品をお届けいたします。</p>
+
+      <h3>血統が違う</h3>
+      <p>但馬牛を両親に持つ黒毛和牛です。自家生産牛および但馬系（但馬血量50％以上）の黒毛和種を肥育したもので、神戸肉の要件を満たすものも含まれます。</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: 初乳製品 -->
+<div class="modal-backdrop" id="modal-colostrum" role="dialog" aria-modal="true" aria-labelledby="ttl-colostrum">
+  <div class="modal">
+    <button type="button" class="modal-close" aria-label="閉じる">×</button>
+    <div class="modal-hero" style="background-image:url('https://takamibeef.co.jp/image/syonyuu_05.gif');">
+      <div class="modal-hero-text">
+        <div class="modal-label">OUR BUSINESS &nbsp;/&nbsp; 02</div>
+        <h2 class="modal-title" id="ttl-colostrum">初乳製剤 COLOSTRUM</h2>
+      </div>
+    </div>
+    <div class="modal-body">
+      <h3>初乳製剤の開発</h3>
+      <p>繁殖業務において、生まれた子牛の死亡は最大の課題です。下痢や肺炎による死亡は、生産者に大きな心理的負担をもたらします。子牛の免疫力強化が予防の鍵となります。</p>
+      <p>神戸高見牧場では約1,200頭のうち270頭の繁殖牛を飼養しています。生後3日で母子分離し人工哺育を実施してきましたが、工夫にもかかわらず、生後6ヵ月以内の死亡率は10〜15%に達していました。</p>
+      <p>「初乳の摂取が関係している」との着眼から、独自の初乳製剤開発に取り組みました。完成した製品<strong>「親はなくとも仔は育つ®」</strong>を給与した結果、200頭以上の子牛で<strong>生存率100%を達成</strong>。県内外の多くの生産者と取引を進めています。</p>
+
+      <h3>製品の特徴</h3>
+      <p>初乳製剤は1回あたり1袋（200g）を使用します。50〜55℃のお湯500〜750mlに溶かしてご使用ください。<strong>溶けやすくダマにならない</strong>ことが特長です。紫色を呈するのは植物由来のアントシアニンによるものです。虚弱児にはストマックチューブを活用します。</p>
+
+      <div class="modal-images">
+        <figure>
+          <img src="https://takamibeef.co.jp/image/syonyuu_03.gif" alt="親はなくとも仔は育つ">
+          <figcaption>初乳製剤「親はなくとも仔は育つ®」（1袋200g）</figcaption>
+        </figure>
+        <figure>
+          <img src="https://takamibeef.co.jp/image/syonyuu_01.gif" alt="粉末状態">
+          <figcaption>溶かす前の粉末状態</figcaption>
+        </figure>
+        <figure>
+          <img src="https://takamibeef.co.jp/image/syonyuu_04.gif" alt="紫色のミルク">
+          <figcaption>お湯で溶いた紫色のミルク</figcaption>
+        </figure>
+        <figure>
+          <img src="https://takamibeef.co.jp/image/syonyuu_02.gif" alt="子牛と高見純氏">
+          <figcaption>生後19日目の純粋但馬牛と高見純氏</figcaption>
+        </figure>
+      </div>
+
+      <h3>子牛の育成管理</h3>
+      <p>母子分離後、20〜30日間はハッチで飼養。その後、一部はロボット哺乳システムで3.5ヵ月齢まで育成され、他の子牛は従来的な人工哺育を受けます。離乳後も3m×3mのマスに3頭1群で育成管理されます。<strong>初乳製剤を与えた子牛は健康で発育も良好</strong>であり、病気の発生が少ないことが確認されています。</p>
+
+      <div class="modal-images">
+        <figure>
+          <img src="https://takamibeef.co.jp/image/syonyuu_06.gif" alt="ロボット哺乳">
+          <figcaption>ロボット哺乳される子牛たち</figcaption>
+        </figure>
+        <figure>
+          <img src="https://takamibeef.co.jp/image/syonyuu_08.gif" alt="育成中の子牛">
+          <figcaption>離乳後、育成中の子牛たち</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: 3Dプロセスセンター -->
+<div class="modal-backdrop" id="modal-freezer" role="dialog" aria-modal="true" aria-labelledby="ttl-freezer">
+  <div class="modal">
+    <button type="button" class="modal-close" aria-label="閉じる">×</button>
+    <div class="modal-hero" style="background-image:url('https://takamibeef.co.jp/image/process01.jpg');">
+      <div class="modal-hero-text">
+        <div class="modal-label">OUR BUSINESS &nbsp;/&nbsp; 03</div>
+        <h2 class="modal-title" id="ttl-freezer">3Dプロセスセンター</h2>
+      </div>
+    </div>
+    <div class="modal-body">
+      <h3>食肉加工拠点について</h3>
+      <p>神戸髙見牧場の食肉加工工場は、<strong>内閣総理大臣賞受賞の「神戸髙見牛」</strong>を生産・肥育する牧場に隣接する施設として運営しています。</p>
+
+      <h3>衛生管理システム</h3>
+      <p><strong>エアーシャワー</strong>：出入口床には粘着マットが敷かれ、靴底や装置の塵埃を除去します。二重扉ではエアシャワーを浴びて塵埃を落とし、中間ルームでは手洗浄後にドアが開く仕様です。</p>
+      <p><strong>専用防塵服</strong>：全身を覆う専用の防塵服やマスク着用により、衣服や人体からの塵埃を防止します。まな板は洗浄後に縦置き可能で、床下も網をはずして洗浄できるため、菌が繁殖する死角がない設計です。</p>
+      <p><strong>オゾン処理</strong>：建屋内は常に衛生が保たれるよう、洗浄以外にもオゾン処理（滅菌）が自動的に行われます。</p>
+      <p><strong>除塵・給排気システム</strong>：塵埃の堆積防止と清掃の容易性を考慮した構造で、空気中の塵埃を除去するため排気経路から流出する空気を建屋外に排気するシステムを備えています。</p>
+
+      <div class="modal-images">
+        <figure>
+          <img src="https://takamibeef.co.jp/image/process01.jpg" alt="工場外観">
+          <figcaption>工場外観</figcaption>
+        </figure>
+        <figure>
+          <img src="https://takamibeef.co.jp/image/process02.jpg" alt="エアーシャワー">
+          <figcaption>エアーシャワー</figcaption>
+        </figure>
+        <figure>
+          <img src="https://takamibeef.co.jp/image/process03.jpg" alt="衛生管理システム">
+          <figcaption>専用防塵服による衛生管理</figcaption>
+        </figure>
+        <figure>
+          <img src="https://takamibeef.co.jp/image/process04.jpg" alt="オゾン処理">
+          <figcaption>オゾン処理による自動滅菌</figcaption>
+        </figure>
+      </div>
+
+      <h3>3Dフリーザー冷凍システム</h3>
+      <p>最先端の鮮度管理技術で、従来の冷凍の常識を覆します。</p>
+      <ul>
+        <li><strong>風味と鮮度の維持</strong>：鮮肉内部の成分に与える影響が最小限で済み、味の劣化が少なく、食材本来の特性を保ちます</li>
+        <li><strong>形状維持</strong>：食材内部の水分をほとんど失うことなく、色つや・形状も変わりません</li>
+        <li><strong>美味しさの保持</strong>：細胞劣化を防ぎ、解凍後に肉汁が出ず、栄養と美味しさが損なわれません</li>
+        <li><strong>霜付着防止</strong>：冷気の循環を工夫することで、鮮肉に霜がつきにくくなります</li>
+      </ul>
+
+      <div class="modal-images">
+        <figure>
+          <img src="https://takamibeef.co.jp/image/freeze01.jpg" alt="3Dフリーザー">
+          <figcaption>3Dフリーザーによる鮮度維持</figcaption>
+        </figure>
+        <figure>
+          <img src="https://takamibeef.co.jp/image/freeze02.jpg" alt="従来冷凍法との比較">
+          <figcaption>従来冷凍法との比較</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Meat & Fresh TAKAMI 宇治店 -->
+<div class="modal-backdrop" id="modal-mftakami" role="dialog" aria-modal="true" aria-labelledby="ttl-mftakami">
+  <div class="modal">
+    <button type="button" class="modal-close" aria-label="閉じる">×</button>
+    <div class="modal-hero" style="background-image:url('https://takamibeef.com/wp/wp-content/uploads/2025/11/top-mft-1024x927.jpg');">
+      <div class="modal-hero-text">
+        <div class="modal-label">FLAGSHIP STORE &nbsp;/&nbsp; SINCE 1978</div>
+        <h2 class="modal-title" id="ttl-mftakami">Meat &amp; Fresh TAKAMI</h2>
+      </div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-lead">
+        <strong>髙見牧場直売 本店</strong><br>
+        スーパーマーケット＆精肉店
+      </p>
+
+      <h3>店舗紹介</h3>
+      <p>宇治市広野町にある「Meat &amp; Fresh TAKAMI」では、<strong>自社牧場で育った自慢の神戸髙見牛</strong>をはじめ、と畜場に足を運び熟練の目利きで黒毛和牛を<strong>１頭買い</strong>するので、市場に出回らない様な希少部位と高品質なお肉をご提供しております。</p>
+
+      <h3>こだわりと特徴</h3>
+      <ul>
+        <li>国産にこだわった<strong>牛肉・豚肉・鶏肉</strong>など鮮度抜群の精肉を対面販売</li>
+        <li>毎日お求めやすい価格で販売</li>
+        <li><strong>オーダーカット</strong>対応 ／ <strong>ギフト包装・のし</strong>対応</li>
+        <li>地元で収穫された<strong>新鮮野菜</strong>を取り揃え</li>
+        <li>揚げたての<strong>コロッケ・ミンチカツ</strong>販売</li>
+        <li>手作りの<strong>惣菜・スイーツ</strong>も販売</li>
+      </ul>
+
+      <h3>お弁当メニュー（全40種以上）</h3>
+      <p>TAKAMI弁当・黒毛和牛弁当・国産牛弁当をはじめ、ステーキ・焼肉・すき焼き・ハンバーグなど多彩なお弁当を、お肉の量（少なめ／1.5倍／2倍）でカスタマイズしてお選びいただけます。</p>
+      <ul>
+        <li><strong>TAKAMI弁当 ヒレステーキ</strong>　4,860円〜</li>
+        <li><strong>TAKAMI弁当 焼肉</strong>　4,320円〜</li>
+        <li><strong>黒毛和牛 特撰 焼肉弁当</strong>　3,240円〜</li>
+        <li><strong>国産牛 焼肉弁当</strong>　1,728円〜</li>
+        <li><strong>高見牛カレー</strong>　1,188円〜　ほか</li>
+      </ul>
+      <p style="font-size: 12px; color: var(--color-muted);">※ ご飯大盛り無料 ／ 焼肉弁当・ステーキ弁当はセパレートタイプもお選びいただけます</p>
+
+      <div class="modal-images">
+        <figure>
+          <img src="https://takamibeef.com/wp/wp-content/uploads/2025/11/top-mft-1024x927.jpg" alt="Meat &amp; Fresh TAKAMI 店内">
+          <figcaption>店内（精肉ショーケース）</figcaption>
+        </figure>
+        <figure>
+          <img src="https://takamibeef.com/wp/wp-content/uploads/2025/11/meet07.webp" alt="精肉商品">
+          <figcaption>厳選された精肉商品</figcaption>
+        </figure>
+        <figure>
+          <img src="https://takamibeef.com/wp/wp-content/uploads/2025/11/meet09.webp" alt="精肉商品">
+          <figcaption>店頭ディスプレイ</figcaption>
+        </figure>
+        <figure>
+          <img src="https://takamibeef.com/wp/wp-content/uploads/2025/11/mf-takami-img.jpg" alt="Meat &amp; Fresh TAKAMI">
+          <figcaption>店舗外観</figcaption>
+        </figure>
+      </div>
+
+      <h3>店舗情報</h3>
+      <p>
+        <strong>所在地</strong>　〒611-0031 京都府宇治市広野町桐生谷28-5　グルメリア1階（キリン堂宇治広野店横）<br>
+        <strong>電話</strong>　TEL 0774-45-4129<br>
+        <strong>営業時間</strong>　10:00〜19:00<br>
+        <strong>定休日</strong>　毎週水曜日<br>
+        <strong>駐車場</strong>　20台
+      </p>
+
+      <h3>お支払い・配達</h3>
+      <p>
+        <strong>支払方法</strong>　クレジットカード可 ／ スマホ決済（PayPay）対応<br>
+        <strong>配達サービス</strong>　Uber Eats・出前館にて配達実施中
+      </p>
+
+      <h3>ご注文方法</h3>
+      <p>
+        <strong>事前注文</strong>　TEL 0774-45-4129 にて承ります<br>
+        <strong>お渡し時間</strong>　AM 10:00〜PM 7:00<br>
+        <strong>予約受付時間</strong>　AM 8:00〜PM 6:30（L.O）
+      </p>
+
+      <p style="margin-top:30px; padding:16px 20px; background:var(--color-bg); border-left:3px solid var(--color-accent); font-size:13.5px;">
+        <strong style="color:var(--color-accent);">毎月29日は「肉の日」</strong>　お得なイベント開催中です！
+      </p>
+
+      <p style="text-align:center; margin-top: 30px;">
+        <a href="https://takamibeef.com/mf-takami/" target="_blank" rel="noopener"
+           style="display:inline-block; padding:14px 36px; border:1px solid var(--color-accent); color:var(--color-accent); font-family:var(--latin-serif); font-style:italic; letter-spacing:0.3em; font-size:13px;">
+          公式サイトで詳細を見る &nbsp;→
+        </a>
+      </p>
+
+      <p style="font-size: 11.5px; color: var(--color-muted); margin-top: 20px; text-align: center;">
+        ※ 内容や盛り付けなどは仕入れ状況によって一部予告なく変更する場合がございます。予めご了承ください。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Video Lightbox -->
+<div class="vlightbox" id="vlightbox" role="dialog" aria-modal="true" aria-label="紹介動画">
+  <div class="vlightbox-inner">
+    <button type="button" class="vlightbox-close" aria-label="閉じる">×</button>
+    <div id="vlightbox-player"></div>
+  </div>
+</div>
+
+<!-- Lightbox (media) -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="メディア掲載写真">
+  <button type="button" class="lightbox-close" aria-label="閉じる">×</button>
+  <div class="lightbox-inner">
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption">
+      <div class="lb-date" id="lightbox-date"></div>
+      <div class="lb-title" id="lightbox-title"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    /* --- Modal (3 pillars) --- */
+    const triggers = document.querySelectorAll('[data-modal]');
+    const backdrops = document.querySelectorAll('.modal-backdrop');
+
+    function openModal(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.add('is-open');
+      document.body.classList.add('modal-open');
+      el.scrollTop = 0;
+    }
+    function closeAllModals() {
+      backdrops.forEach(b => b.classList.remove('is-open'));
+      document.body.classList.remove('modal-open');
+    }
+
+    triggers.forEach(btn => {
+      btn.addEventListener('click', () => openModal(btn.dataset.modal));
+    });
+
+    backdrops.forEach(b => {
+      b.addEventListener('click', e => {
+        if (e.target === b || e.target.classList.contains('modal-close')) closeAllModals();
+      });
+    });
+
+    /* --- Lightbox (media items) --- */
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbDate = document.getElementById('lightbox-date');
+    const lbTitle = document.getElementById('lightbox-title');
+    const lbClose = lb.querySelector('.lightbox-close');
+
+    function openLightbox(img, date, title) {
+      lbImg.src = img;
+      lbImg.alt = title || '';
+      lbDate.textContent = date || '';
+      lbTitle.textContent = title || '';
+      lb.classList.add('is-open');
+      document.body.classList.add('modal-open');
+    }
+    function closeLightbox() {
+      lb.classList.remove('is-open');
+      document.body.classList.remove('modal-open');
+      lbImg.src = '';
+    }
+
+    document.querySelectorAll('.media-item').forEach(btn => {
+      btn.addEventListener('click', () => {
+        openLightbox(btn.dataset.img, btn.dataset.date, btn.dataset.title);
+      });
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+
+    /* --- Video Lightbox --- */
+    const vlb = document.getElementById('vlightbox');
+    const vlbPlayer = document.getElementById('vlightbox-player');
+    const vlbClose = vlb.querySelector('.vlightbox-close');
+    const movieTrigger = document.getElementById('movie-trigger');
+
+    function openVideo(videoId) {
+      vlbPlayer.innerHTML =
+        '<iframe src="https://www.youtube-nocookie.com/embed/' + videoId +
+        '?autoplay=1&rel=0&modestbranding=1" ' +
+        'title="髙見牧場 紹介動画" ' +
+        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
+        'allowfullscreen></iframe>';
+      vlb.classList.add('is-open');
+      document.body.classList.add('modal-open');
+    }
+    function closeVideo() {
+      vlb.classList.remove('is-open');
+      document.body.classList.remove('modal-open');
+      vlbPlayer.innerHTML = '';
+    }
+
+    if (movieTrigger) {
+      movieTrigger.addEventListener('click', () => openVideo(movieTrigger.dataset.video));
+    }
+    vlbClose.addEventListener('click', closeVideo);
+    vlb.addEventListener('click', e => { if (e.target === vlb) closeVideo(); });
+
+    /* --- Hero Slider --- */
+    const slider = document.getElementById('slider');
+    if (slider) {
+      const slides = slider.querySelectorAll('.slide');
+      const dots = slider.querySelectorAll('.slider-dot');
+      let current = 0;
+      let timer = null;
+      const INTERVAL = 5500;
+
+      function show(i) {
+        slides[current].classList.remove('is-active');
+        dots[current].classList.remove('is-active');
+        current = (i + slides.length) % slides.length;
+        slides[current].classList.add('is-active');
+        dots[current].classList.add('is-active');
+      }
+      function next() { show(current + 1); }
+      function start() { stop(); timer = setInterval(next, INTERVAL); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => { show(i); start(); });
+      });
+      slider.addEventListener('mouseenter', stop);
+      slider.addEventListener('mouseleave', start);
+      start();
+    }
+
+    /* --- Common: ESC key --- */
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        closeAllModals();
+        closeLightbox();
+        closeVideo();
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
